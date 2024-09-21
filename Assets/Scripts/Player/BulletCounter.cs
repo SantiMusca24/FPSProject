@@ -9,7 +9,7 @@ public class BulletCounter : MonoBehaviour
     [SerializeField] private GameObject _bullet1, _bullet2, _bullet3, _bullet4, _bullet5, _bullet6, _bullet7, 
     _bullet8, _bullet9, _bullet10, _bullet11, _bullet12, _bullet13, _bullet14, _bullet15, _bullet16;  // ÍCONOS DE BALAS 
     [SerializeField] static public bool _shootCooldown = false; // EL JUGADOR NO PODRÁ DISPARAR CUANDO EL COOLDOWN ESTÉ ACTIVO
-    [SerializeField] private AudioSource _shootNoise, _reloadNoise, _emptyNoise;
+    [SerializeField] private AudioSource _reloadNoise;
     [SerializeField] static public bool _canShoot = true;
 
 
@@ -26,16 +26,6 @@ public class BulletCounter : MonoBehaviour
 
         if (_currentBullets <= 0) _canShoot = false;
         else _canShoot = true;
-
-        // DISPARAR CON CLICK IZQUIERDO REDUCE LAS BALAS POR 1. NO SE PUEDE DISPARAR CON 0 BALAS
-        /*if (Input.GetMouseButtonDown(0) && _currentBullets > 0 && !_shootCooldown)
-        {
-            _shootNoise.Play();
-            _currentBullets--;
-            //_shootCooldown = true;
-            StartCoroutine(shottyCooldown());
-        }
-        else if (Input.GetMouseButtonDown(0) && _currentBullets <= 0) _emptyNoise.Play();*/
 
         // CADA NÚMERO DE BALAS DEFINE CUÁLES ÍCONOS ESTÁN ACTIVOS
         if (_currentBullets == 16)
@@ -180,7 +170,7 @@ public class BulletCounter : MonoBehaviour
 
         IEnumerator reloadSlow()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
             _currentBullets = _maxBullets;
         }
 
