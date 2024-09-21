@@ -10,12 +10,13 @@ public class GunController : MonoBehaviour
     public float fireRate = 15f;
 
     public Camera fpsCam;
-    public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash; public ParticleSystem muzzleFlash2;
     public GameObject impactEffect;
 
     private float nextTimeToFire = 0f;
 
     [SerializeField] private AudioSource _shootNoise, _emptyNoise;
+    [SerializeField] private Animator _animator;
 
 
     void Update()
@@ -28,6 +29,7 @@ public class GunController : MonoBehaviour
         else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && PistolBullets._canShoot)
         {
             Shoot();
+            _animator.SetTrigger("Fire");
         }
         else if (Input.GetMouseButtonDown(0)) _emptyNoise.Play();
     }
@@ -35,6 +37,7 @@ public class GunController : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
+        muzzleFlash2.Play();
         _shootNoise.Play();
         if (WeaponSwitching.selectedWeapon == 0) BulletCounter._currentBullets--;
         else if (WeaponSwitching.selectedWeapon == 1) PistolBullets._currentBullets--;

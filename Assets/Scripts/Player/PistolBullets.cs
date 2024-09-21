@@ -11,6 +11,7 @@ public class PistolBullets : MonoBehaviour
     [SerializeField] static public bool _shootCooldown = false; // EL JUGADOR NO PODRÁ DISPARAR CUANDO EL COOLDOWN ESTÉ ACTIVO
     [SerializeField] private AudioSource _reloadNoise;
     [SerializeField] static public bool _canShoot = true;
+    [SerializeField] private Animator _animator;
 
 
     // Start is called before the first frame update

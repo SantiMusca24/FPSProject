@@ -11,6 +11,7 @@ public class BulletCounter : MonoBehaviour
     [SerializeField] static public bool _shootCooldown = false; // EL JUGADOR NO PODRÁ DISPARAR CUANDO EL COOLDOWN ESTÉ ACTIVO
     [SerializeField] private AudioSource _reloadNoise;
     [SerializeField] static public bool _canShoot = true;
+    [SerializeField] private Animator _animator;
 
 
     // Start is called before the first frame update
@@ -159,6 +160,7 @@ public class BulletCounter : MonoBehaviour
         {
             _reloadNoise.Play();
             _shootCooldown = true;
+            _animator.SetTrigger("Recargar");
             StartCoroutine(reloadSlow());
             StartCoroutine(shottyCooldown());
         }
