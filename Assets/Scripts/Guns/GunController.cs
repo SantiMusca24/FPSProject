@@ -25,11 +25,11 @@ public class GunController : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
-        else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && BulletCounter._canShoot)
+        else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && PistolBullets._canShoot)
         {
             Shoot();
         }
-        else if (Input.GetMouseButtonDown(0) && !BulletCounter._canShoot) _emptyNoise.Play();
+        else if (Input.GetMouseButtonDown(0)) _emptyNoise.Play();
     }
 
     void Shoot()

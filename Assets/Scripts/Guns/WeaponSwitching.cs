@@ -23,10 +23,14 @@ public class WeaponSwitching : MonoBehaviour
             if(selectedWeapon >= transform.childCount - 1) 
             {
                 selectedWeapon = 0;
+                BulletCounter._shootCooldown = false;
+                PistolBullets._shootCooldown = false;
             }
             else
             {
                 selectedWeapon++;
+                BulletCounter._shootCooldown = false;
+                PistolBullets._shootCooldown = false;
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -34,21 +38,27 @@ public class WeaponSwitching : MonoBehaviour
             if (selectedWeapon <= 0)
             {
                 selectedWeapon = transform.childCount -1 ;
+                BulletCounter._shootCooldown = false;
+                PistolBullets._shootCooldown = false;
             }
             else
             {
                 selectedWeapon--;
+                BulletCounter._shootCooldown = false;
+                PistolBullets._shootCooldown = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
-
+            BulletCounter._shootCooldown = false;
+            PistolBullets._shootCooldown = false;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)&& transform.childCount >=2)
         {
             selectedWeapon = 1;
-
+            BulletCounter._shootCooldown = false;
+            PistolBullets._shootCooldown = false;
         }
         if (previousSelectedWeapon != selectedWeapon)
         {

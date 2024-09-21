@@ -18,6 +18,7 @@ public class PistolBullets : MonoBehaviour
     {
         // EL JUGADOR EMPIEZA CON BALAS MÁXIMAS
         _currentBullets = _maxBullets;
+        _shootCooldown = false;
     }
 
     // Update is called once per frame
