@@ -29,7 +29,7 @@ public class WeaponSwitching : MonoBehaviour
             if(selectedWeapon >= transform.childCount - 1) 
             {
                 //_akReload.Play("normalState", 0, 0f);
-                _pistolShoot.Play("Reload_Pistol", 0, 0f);
+                _pistolShoot.Play("Idle", 0, 0f);
                 selectedWeapon = 0;
                 BulletCounter._shootCooldown = false;
                 PistolBullets._shootCooldown = false;
@@ -58,7 +58,7 @@ public class WeaponSwitching : MonoBehaviour
             else
             {
                 //_akReload.Play("normalState", 0, 0f);
-                _pistolShoot.Play("Reload_Pistol", 0, 0f);
+                _pistolShoot.Play("Idle", 0, 0f);
                 selectedWeapon--;
                 BulletCounter._shootCooldown = false;
                 PistolBullets._shootCooldown = false;
@@ -68,7 +68,7 @@ public class WeaponSwitching : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //_akReload.Play("normalState", 0, 0f);
-            _pistolShoot.Play("Reload_Pistol", 0, 0f);
+            _pistolShoot.Play("Idle", 0, 0f);
             selectedWeapon = 0;
             BulletCounter._shootCooldown = false;
             PistolBullets._shootCooldown = false;
