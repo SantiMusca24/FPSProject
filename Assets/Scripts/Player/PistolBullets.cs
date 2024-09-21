@@ -13,7 +13,6 @@ public class PistolBullets : MonoBehaviour
     [SerializeField] static public bool _canShoot = true;
     [SerializeField] private Animator _animator;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +79,7 @@ public class PistolBullets : MonoBehaviour
         {
             _reloadNoise.Play();
             _shootCooldown = true;
+            _animator.SetTrigger("Reload");
             StartCoroutine(reloadSlow());
             StartCoroutine(shottyCooldown());
         }
