@@ -17,7 +17,7 @@ public class GunController : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire)
+        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -27,7 +27,7 @@ public class GunController : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
-        
+        BulletCounter._currentBullets--;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
