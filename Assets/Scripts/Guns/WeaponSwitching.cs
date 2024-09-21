@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    public int selectedWeapon = 0;
+
+    [SerializeField] private GameObject _akUI, _pistolUI;
+
+    static public int selectedWeapon = 0;
     void Start()
     {
         SelectWeapon();
@@ -40,14 +43,27 @@ public class WeaponSwitching : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)&& transform.childCount >=2)
         {
             selectedWeapon = 1;
+
         }
         if (previousSelectedWeapon != selectedWeapon)
         {
             SelectWeapon();
+        }
+
+        if (selectedWeapon == 0)
+        {
+            _akUI.SetActive(true);
+            _pistolUI.SetActive(false);
+        }
+        else if (selectedWeapon == 1)
+        {
+            _akUI.SetActive(false);
+            _pistolUI.SetActive(true);
         }
     }
 

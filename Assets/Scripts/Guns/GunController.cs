@@ -20,9 +20,13 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot)
+        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && WeaponSwitching.selectedWeapon == 0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
+            Shoot();
+        }
+        else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && BulletCounter._canShoot)
+        {
             Shoot();
         }
         else if (Input.GetMouseButtonDown(0) && !BulletCounter._canShoot) _emptyNoise.Play();
@@ -32,7 +36,8 @@ public class GunController : MonoBehaviour
     {
         muzzleFlash.Play();
         _shootNoise.Play();
-        BulletCounter._currentBullets--;
+        if (WeaponSwitching.selectedWeapon == 0) BulletCounter._currentBullets--;
+        else if (WeaponSwitching.selectedWeapon == 1) PistolBullets._currentBullets--;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
