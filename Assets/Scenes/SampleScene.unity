@@ -445,6 +445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _akUI: {fileID: 821845734}
   _pistolUI: {fileID: 1997391121}
+  _akReload: {fileID: 228086913234689885}
+  _pistolShoot: {fileID: 893260484}
 --- !u!1 &173777329
 GameObject:
   m_ObjectHideFlags: 0
@@ -13927,7 +13929,7 @@ MonoBehaviour:
   _bullet5: {fileID: 232809611}
   _bullet6: {fileID: 775602791}
   _reloadNoise: {fileID: 1872097475}
-  _animator: {fileID: 0}
+  _animator: {fileID: 893260484}
 --- !u!1 &2003850610
 GameObject:
   m_ObjectHideFlags: 0
@@ -14147,7 +14149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &228086913234689885
 Animator:
   serializedVersion: 5
