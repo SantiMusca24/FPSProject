@@ -166,7 +166,7 @@ public class BulletCounter : MonoBehaviour
         // RECARGAR CON R
         if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown)
         {
-            _reloadNoise.Play();
+            //_reloadNoise.Play();
             _shootCooldown = true;
             StartCoroutine(reloadSlow());
             StartCoroutine(shottyCooldown());
