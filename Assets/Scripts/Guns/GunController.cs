@@ -14,7 +14,10 @@ public class GunController : MonoBehaviour
     public GameObject impactEffect;
 
     private float nextTimeToFire = 0f;
-   
+
+    [SerializeField] private AudioSource _shootNoise, _emptyNoise;
+
+
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot)
@@ -22,11 +25,13 @@ public class GunController : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
+        else if (Input.GetMouseButtonDown(0) && !BulletCounter._canShoot) _emptyNoise.Play();
     }
 
     void Shoot()
     {
         muzzleFlash.Play();
+        _shootNoise.Play();
         BulletCounter._currentBullets--;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))

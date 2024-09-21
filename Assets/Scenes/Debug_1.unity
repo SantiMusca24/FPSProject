@@ -434,6 +434,8 @@ MonoBehaviour:
   fpsCam: {fileID: 603392908}
   muzzleFlash: {fileID: 725064287}
   impactEffect: {fileID: 1783897956761910102, guid: b22fec378a1156c42a9fe256db70f515, type: 3}
+  _shootNoise: {fileID: 1111544890}
+  _emptyNoise: {fileID: 1574831282}
 --- !u!1 &197712024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,9 +1098,7 @@ MonoBehaviour:
   _bullet14: {fileID: 83363424}
   _bullet15: {fileID: 1703094585}
   _bullet16: {fileID: 686616697}
-  _shootNoise: {fileID: 1111544890}
   _reloadNoise: {fileID: 1375519421}
-  _emptyNoise: {fileID: 1574831282}
 --- !u!1 &326082714
 GameObject:
   m_ObjectHideFlags: 0
@@ -6931,7 +6931,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e0186d467dd3dbe43be8fa921bbae52a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.48
   m_Pitch: 1
   Loop: 0
   Mute: 0
