@@ -28,8 +28,8 @@ public class GunController : MonoBehaviour
     [SerializeField] static public int _pistolMunnition = 3;
     [SerializeField] static public int _akMunnition = 3;
 
-    [SerializeField] private TMP_Text _pistolMunnitionText;
-    [SerializeField] private TMP_Text _akMunnitionText;
+    //[SerializeField] private TMP_Text _pistolMunnitionText;
+    //[SerializeField] private TMP_Text _akMunnitionText;
 
     [SerializeField] private bool _canActivateInfShot = true;
     [SerializeField] static public bool _infShot = false;
@@ -67,8 +67,8 @@ public class GunController : MonoBehaviour
         if (_akMunnition <= 0) BulletCounter._canShoot = false;
         if (_pistolMunnition <= 0) PistolBullets._canShoot = false;
         
-        _pistolMunnitionText.text = "x" + _pistolMunnition;
-        _akMunnitionText.text = "x" + _akMunnition;
+        //_pistolMunnitionText.text = "x" + _pistolMunnition;
+        //_akMunnitionText.text = "x" + _akMunnition;
 
 
         if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && WeaponSwitching.selectedWeapon == 0)

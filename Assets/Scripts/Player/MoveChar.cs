@@ -17,12 +17,20 @@ public class MoveChar : MonoBehaviour
     private float right, forward;
 
     [SerializeField] private Transform _orientation;
-
-
+    public float groundDrag;
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readyToJump;
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
+    public KeyCode jumpkey = KeyCode.Space;
     // Start is called before the first frame update
     void Start()
     {
-        _speed = 5;   
+        _speed = 5;
+        readyToJump = true;
     }
 
     // Update is called once per frame
@@ -30,8 +38,23 @@ public class MoveChar : MonoBehaviour
     {
         right = Input.GetAxisRaw("Horizontal");
         forward = Input.GetAxisRaw("Vertical");
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        if (grounded) 
+        {
+            _rigidbod.drag = groundDrag;
+        }
+        else
+        {
+            _rigidbod.drag = 0;
+        }
 
-
+        if (Input.GetKey(jumpkey) && readyToJump && grounded)
+        {
+            readyToJump = false;
+            Jump();
+            Debug.Log("salto");
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void FixedUpdate()
@@ -56,11 +79,20 @@ public class MoveChar : MonoBehaviour
 
 
 
+    }
+
+    private void Jump()
+    {
+        _rigidbod.velocity = new Vector3(_rigidbod.velocity.x,0f,_rigidbod.velocity.z);
+
+        _rigidbod.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
 
     }
+    private void ResetJump()
+    {
+        readyToJump = true;
 
 
-
-
+    }
 }
