@@ -25,8 +25,15 @@ public class PistolBullets : MonoBehaviour
     void Update()
     {
 
-        if (_currentBullets <= 0) _canShoot = false;
+        if (_currentBullets <= 0 ) _canShoot = false;
         else _canShoot = true;
+
+        if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && _canShoot && !_shootCooldown)
+        {
+            _shootCooldown = true;
+            StartCoroutine(shottyCooldown());
+        }
+
 
         // CADA NÚMERO DE BALAS DEFINE CUÁLES ÍCONOS ESTÁN ACTIVOS
         if (_currentBullets == 6)
@@ -75,7 +82,7 @@ public class PistolBullets : MonoBehaviour
         }
 
         // RECARGAR CON R
-        if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown)
+        if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown && GunController._pistolMunnition > 0)
         {
             _reloadNoise.Play();
             _shootCooldown = true;
@@ -94,6 +101,7 @@ public class PistolBullets : MonoBehaviour
         {
             yield return new WaitForSeconds(1.5f);
             _currentBullets = _maxBullets;
+            GunController._canChangePistolMunnition = true;
         }
 
     }
