@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using TMPro;
-
 
 public class GunController : MonoBehaviour
 {
@@ -23,52 +21,14 @@ public class GunController : MonoBehaviour
     private float doubleShotDuration = 5f; // Duración del power-up de doble disparo
     private bool canActivateDoubleShot = true;
 
-    [SerializeField] static public bool _canChangePistolMunnition = true;
-    [SerializeField] static public bool _canChangeAkMunnition = true;
-    [SerializeField] static public int _pistolMunnition = 3;
-    [SerializeField] static public int _akMunnition = 3;
-
-    [SerializeField] private TMP_Text _pistolMunnitionText;
-    [SerializeField] private TMP_Text _akMunnitionText;
-
-    [SerializeField] private bool _canActivateInfShot = true;
-    [SerializeField] static public bool _infShot = false;
-
-
     void Update()
     {
-        if (_infShot)
-        {
-            BulletCounter._currentBullets = 16;
-            PistolBullets._currentBullets = 6;
-        }
 
-        if (Input.GetKeyDown(KeyCode.L) && _canActivateInfShot)
-        {
-            _canActivateInfShot = false;
-            _infShot = true;
-            StartCoroutine(infShotThing());
-        }
-
-        if (PistolBullets._currentBullets <= 0 && _canChangePistolMunnition)
-        {
-            _canChangePistolMunnition = false;
-            _pistolMunnition--;
-        }
-        if (BulletCounter._currentBullets <= 0 && _canChangeAkMunnition)
-        {
-            _canChangeAkMunnition = false;
-            _akMunnition--;
-        }
         if (Input.GetKeyDown(KeyCode.E) && canActivateDoubleShot)
         {
             ActivateDoubleShot(doubleShotDuration);
         }
-        if (_akMunnition <= 0) BulletCounter._canShoot = false;
-        if (_pistolMunnition <= 0) PistolBullets._canShoot = false;
-        
-        _pistolMunnitionText.text = "x" + _pistolMunnition;
-        _akMunnitionText.text = "x" + _akMunnition;
+
 
 
         if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && WeaponSwitching.selectedWeapon == 0)
@@ -80,7 +40,7 @@ public class GunController : MonoBehaviour
                 Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
             }
         }
-        else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && PistolBullets._canShoot && !PistolBullets._shootCooldown)
+        else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && PistolBullets._canShoot)
         {
             Shoot();
             _animator.SetTrigger("Fire");
@@ -89,28 +49,7 @@ public class GunController : MonoBehaviour
                 Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
             }
         }
-        else if (Input.GetMouseButtonDown(0) && !PistolBullets._shootCooldown) _emptyNoise.Play();
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            InteractBulletBox();
-        }
-    }
-
-    void InteractBulletBox()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-        {
-            Debug.Log(hit.transform.name);
-
-
-            bulletBox target = hit.transform.GetComponent<bulletBox>();
-            if (target != null)
-            {
-                target.Reloady();
-            }
-        }
+        else if (Input.GetMouseButtonDown(0)) _emptyNoise.Play();
     }
 
     void Shoot()
@@ -135,12 +74,6 @@ public class GunController : MonoBehaviour
             Destroy(impactGO, 2f);
         }
         
-    }
-    IEnumerator infShotThing()
-    {
-        yield return new WaitForSeconds(5);
-        _infShot = false;
-        _canActivateInfShot = true;
     }
     public void ActivateDoubleShot(float duration)
     {

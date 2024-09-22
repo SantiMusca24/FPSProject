@@ -156,7 +156,7 @@ public class BulletCounter : MonoBehaviour
         }
 
         // RECARGAR CON R
-        if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown && GunController._akMunnition > 0)
+        if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown)
         {
             _reloadNoise.Play();
             _shootCooldown = true;
@@ -175,7 +175,6 @@ public class BulletCounter : MonoBehaviour
         {
             yield return new WaitForSeconds(1.5f);
             _currentBullets = _maxBullets;
-            GunController._canChangeAkMunnition = true;
         }
 
     }
