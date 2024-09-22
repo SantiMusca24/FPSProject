@@ -19,6 +19,7 @@ public class MoveChar : MonoBehaviour
     [SerializeField] private Transform _orientation;
     public float groundDrag;
     public float jumpForce;
+    public float poweredJumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
@@ -26,6 +27,8 @@ public class MoveChar : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
     public KeyCode jumpkey = KeyCode.Space;
+    public KeyCode powerJumpKey = KeyCode.C; // Tecla para activar el doble salto
+    private bool powerJumpActive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,19 +45,35 @@ public class MoveChar : MonoBehaviour
         if (grounded) 
         {
             _rigidbod.drag = groundDrag;
+            if (Input.GetKey(jumpkey) && readyToJump)
+            {
+                readyToJump = false;  // Desactivar el salto hasta que se complete el cooldown
+
+                if (powerJumpActive)
+                {
+                    // Usar la fuerza aumentada si el poder de salto está activo
+                    Jump(poweredJumpForce);
+                    powerJumpActive = false; // Desactivar el poder de salto después de usarlo
+                    Debug.Log("Salto con poder realizado");
+                }
+                else
+                {
+                    // Usar la fuerza de salto normal si no está activo el poder de salto
+                    Jump(jumpForce);
+                }
+
+                Invoke(nameof(ResetJump), jumpCooldown); // Iniciar el cooldown para el próximo salto
+            }
         }
         else
         {
             _rigidbod.drag = 0;
         }
-
-        if (Input.GetKey(jumpkey) && readyToJump && grounded)
-        {
-            readyToJump = false;
-            Jump();
-            Debug.Log("salto");
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
+         if (Input.GetKeyDown(powerJumpKey) && grounded)
+    {
+        powerJumpActive = true;
+        Debug.Log("Poder de salto activado");
+    }
     }
 
     private void FixedUpdate()
@@ -81,7 +100,7 @@ public class MoveChar : MonoBehaviour
 
     }
 
-    private void Jump()
+    private void Jump(float jumpForce)
     {
         _rigidbod.velocity = new Vector3(_rigidbod.velocity.x,0f,_rigidbod.velocity.z);
 

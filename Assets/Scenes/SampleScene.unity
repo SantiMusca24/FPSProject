@@ -12731,12 +12731,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e994d90ac6703ba4095ba0cfe1c939b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 10
   _rigidbod: {fileID: 1059113971}
   _camera: {fileID: 831755152}
   _orientation: {fileID: 2003850611}
   groundDrag: 3
   jumpForce: 7
+  poweredJumpForce: 10
   jumpCooldown: 1
   airMultiplier: 0.4
   playerHeight: 2
@@ -12744,6 +12745,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jumpkey: 32
+  powerJumpKey: 99
 --- !u!1 &1192280289
 GameObject:
   m_ObjectHideFlags: 0
