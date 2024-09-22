@@ -431,6 +431,7 @@ MonoBehaviour:
   _shootNoise: {fileID: 181212670}
   _emptyNoise: {fileID: 1996961962}
   _animator: {fileID: 893260484}
+  _canActivateInfShot: 1
 --- !u!114 &170753028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,7 +1576,7 @@ GameObject:
   - component: {fileID: 651646610}
   - component: {fileID: 651646609}
   - component: {fileID: 651646612}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1689,7 +1690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 664450364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7030,7 +7031,7 @@ Transform:
   m_GameObject: {fileID: 821845734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -606, y: -18, z: -517.73}
+  m_LocalPosition: {x: -1038, y: -270, z: -517.73}
   m_LocalScale: {x: 0.6111562, y: 0.6111562, z: 0.6111562}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7141,7 +7142,7 @@ GameObject:
   - component: {fileID: 858552216}
   - component: {fileID: 858552215}
   - component: {fileID: 858552218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12734,6 +12735,15 @@ MonoBehaviour:
   _rigidbod: {fileID: 1059113971}
   _camera: {fileID: 831755152}
   _orientation: {fileID: 2003850611}
+  groundDrag: 3
+  jumpForce: 7
+  jumpCooldown: 1
+  airMultiplier: 0.4
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+  jumpkey: 32
 --- !u!1 &1192280289
 GameObject:
   m_ObjectHideFlags: 0
@@ -14017,7 +14027,7 @@ Transform:
   m_GameObject: {fileID: 1997391121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -658, y: -77, z: -641.28}
+  m_LocalPosition: {x: -1090, y: -329, z: -641.28}
   m_LocalScale: {x: 0.75703925, y: 0.75703925, z: 0.75703925}
   m_ConstrainProportionsScale: 0
   m_Children:
