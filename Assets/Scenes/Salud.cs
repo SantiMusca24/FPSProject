@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 
 public class Salud : MonoBehaviour
 {
@@ -17,12 +19,16 @@ public class Salud : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Death_Scene");
+        }
         refreshBar();
     }
         void refreshBar ()

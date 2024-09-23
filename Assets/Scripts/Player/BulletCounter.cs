@@ -174,6 +174,7 @@ public class BulletCounter : MonoBehaviour
         IEnumerator reloadSlow()
         {
             yield return new WaitForSeconds(1.5f);
+            GunController._akMunnition--;
             _currentBullets = _maxBullets;
             GunController._canChangeAkMunnition = true;
         }

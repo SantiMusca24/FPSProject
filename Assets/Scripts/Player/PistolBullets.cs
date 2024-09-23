@@ -100,6 +100,7 @@ public class PistolBullets : MonoBehaviour
         IEnumerator reloadSlow()
         {
             yield return new WaitForSeconds(1.5f);
+            GunController._pistolMunnition--;
             _currentBullets = _maxBullets;
             GunController._canChangePistolMunnition = true;
         }
