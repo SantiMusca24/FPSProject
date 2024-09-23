@@ -8,7 +8,7 @@ public class EnemyView : MonoBehaviour
     //StaticEnemy staticEnemy;
     public GameObject player;
     public float radius;
-    [Range(0,360)]
+    [Range(0, 360)]
     public float angle;
 
     public float laserDmg;
@@ -24,7 +24,10 @@ public class EnemyView : MonoBehaviour
     public Material hitCheck;
     public Color color1;
     public Color color2;
-    public int hitProbability = Random.Range(1,11);
+    public int hitProbability;
+
+
+
 
     private IEnumerator FOVRoutine()
     {

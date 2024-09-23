@@ -35,8 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Target
+  - Obstruction
   m_SortingLayers:
   - name: Default
     uniqueID: 0

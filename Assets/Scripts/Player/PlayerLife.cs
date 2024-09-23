@@ -9,35 +9,55 @@ public class PlayerLife : MonoBehaviour
 
     [SerializeField] float _playerMaxLife = 10000f;
     float _playerCurrentLife;
-
+    [SerializeField] float _atkCD;
+    float _chosenAtkCD;
     private void Awake()
     {
         enemyView = enemy.GetComponent<EnemyView>();
-    }
-
-    private void Start()
-    {
+        _chosenAtkCD = _atkCD;
         _playerCurrentLife = _playerMaxLife;
     }
 
     void FixedUpdate()
     {
-        if (enemyView.canSeePlayer == true)
-        {
-            if (enemyView.hitProbability >=3)
-            {
-             _playerCurrentLife -= enemyView.laserDmg;
-             Debug.Log(enemyView.laserDmg + " de daño recibido, " + _playerCurrentLife + " de vida restante");
+        enemyView.hitProbability = Random.Range(1, 11);
 
-                if (_playerCurrentLife <= 0)
-                {
-                Destroy (this.gameObject);
+        if (_atkCD <=0)
+        {
+            _atkCD = _chosenAtkCD;
+
+            if (enemyView.canSeePlayer == true)
+            {    
+
+                if (enemyView.hitProbability >=4)    
+                {    
+
+                    _playerCurrentLife -= enemyView.laserDmg;
+                    Debug.Log(enemyView.laserDmg + " de daño recibido, " + _playerCurrentLife + " de vida restante");    
+                    _atkCD = _chosenAtkCD;         
+
+                        if (_playerCurrentLife <= 0)
+                        {
+                            Destroy(this.gameObject);
+                            Debug.Log("Jugador murió");
+                        }
                 }
-            }
-            else
-            {
-                Debug.Log("Tiro esquivado");
-            }
+
+                else
+                {    
+                    Debug.Log("Tiro esquivado");
+                }    
+
+            }    
+
         }
+
+        else
+        {
+            _atkCD--;
+            Debug.Log("Remaining CD: " + _atkCD);
+        }
+
     }
+
 }
