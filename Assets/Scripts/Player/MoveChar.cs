@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveChar : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class MoveChar : MonoBehaviour
     public KeyCode jumpkey = KeyCode.Space;
     public KeyCode powerJumpKey = KeyCode.C; // Tecla para activar el doble salto
     private bool powerJumpActive = false;
+    public string sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,11 @@ public class MoveChar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        
         right = Input.GetAxisRaw("Horizontal");
         forward = Input.GetAxisRaw("Vertical");
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);

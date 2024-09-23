@@ -9181,7 +9181,9 @@ MonoBehaviour:
     C:
     AIR JUMP (UNTIL LANDING)
 
-    R: RELOAD'
+    R: RELOAD
+
+    F1:RESTART'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15632,6 +15634,7 @@ MonoBehaviour:
     m_Bits: 128
   jumpkey: 32
   powerJumpKey: 99
+  sceneName: SampleScene
 --- !u!114 &1059113973
 MonoBehaviour:
   m_ObjectHideFlags: 0
