@@ -34,7 +34,7 @@ public class WinCondition : MonoBehaviour
         if (currentEnemiesDead >= totalEnemies)
         {
             
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene("Win_Scene");
         }
     }
 }
