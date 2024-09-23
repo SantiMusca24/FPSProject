@@ -66,12 +66,12 @@ public class GunController : MonoBehaviour
         if (PistolBullets._currentBullets <= 0 && _canChangePistolMunnition && _pistolMunnition > 0)
         {
             _canChangePistolMunnition = false;
-            _pistolMunnition--;
+            //_pistolMunnition--;
         }
         if (BulletCounter._currentBullets <= 0 && _canChangeAkMunnition && _akMunnition > 0)
         {
             _canChangeAkMunnition = false;
-            _akMunnition--;
+            //_akMunnition--;
         }
         if (Input.GetKeyDown(KeyCode.E) && canActivateDoubleShot)
         {
