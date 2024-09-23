@@ -63,12 +63,12 @@ public class GunController : MonoBehaviour
             StartCoroutine(infShotThing());
         }
 
-        if (PistolBullets._currentBullets <= 0 && _canChangePistolMunnition)
+        if (PistolBullets._currentBullets <= 0 && _canChangePistolMunnition && _pistolMunnition > 0)
         {
             _canChangePistolMunnition = false;
             _pistolMunnition--;
         }
-        if (BulletCounter._currentBullets <= 0 && _canChangeAkMunnition)
+        if (BulletCounter._currentBullets <= 0 && _canChangeAkMunnition && _akMunnition > 0)
         {
             _canChangeAkMunnition = false;
             _akMunnition--;
@@ -77,8 +77,8 @@ public class GunController : MonoBehaviour
         {
             ActivateDoubleShot(doubleShotDuration);
         }
-        if (_akMunnition <= 0) BulletCounter._canShoot = false;
-        if (_pistolMunnition <= 0) PistolBullets._canShoot = false;
+        //if (_akMunnition <= 0) BulletCounter._canShoot = false;
+        //if (_pistolMunnition <= 0) PistolBullets._canShoot = false;
         
         _pistolMunnitionText.text = "x" + _pistolMunnition;
         _akMunnitionText.text = "x" + _akMunnition;
