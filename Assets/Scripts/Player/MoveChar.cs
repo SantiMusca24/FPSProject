@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -81,7 +82,17 @@ public class MoveChar : MonoBehaviour
         powerJumpActive = true;
         Debug.Log("Poder de salto activado");
     }
-    }
+        if (Gas.maskOn == false && Input.GetKeyDown(KeyCode.M))
+        {
+            Gas.maskOn = true;
+            
+        }
+        else if (Gas.maskOn == true && Input.GetKeyDown(KeyCode.M))
+        {
+            Gas.maskOn = false;
+        }
+           
+       }
 
     private void FixedUpdate()
     {
