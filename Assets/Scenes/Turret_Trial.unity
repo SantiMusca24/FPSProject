@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -426,9 +426,16 @@ MonoBehaviour:
   fireRate: 15
   fpsCam: {fileID: 963194227}
   muzzleFlash: {fileID: 948944060}
+  muzzleFlash2: {fileID: 0}
   impactEffect: {fileID: 1783897956761910102, guid: b22fec378a1156c42a9fe256db70f515, type: 3}
   _shootNoise: {fileID: 181212670}
   _emptyNoise: {fileID: 1996961962}
+  _animator: {fileID: 0}
+  _pistolMunnitionText: {fileID: 0}
+  _akMunnitionText: {fileID: 0}
+  _pistolMunnitionObj: {fileID: 0}
+  _akMunnitionObj: {fileID: 0}
+  _canActivateInfShot: 1
 --- !u!114 &170753028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _akUI: {fileID: 821845734}
   _pistolUI: {fileID: 1997391121}
+  _akReload: {fileID: 0}
+  _pistolShoot: {fileID: 0}
 --- !u!1 &173777329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,15 +1870,16 @@ MonoBehaviour:
   playerRef: {fileID: 1059113968}
   targetMask:
     serializedVersion: 2
-    m_Bits: 1073741824
+    m_Bits: 0
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 0
   target: {fileID: 1059113970}
   canSeePlayer: 1
   hitCheck: {fileID: 2100000, guid: cea8a458ac7b9b940ac0c71ae4fae93d, type: 2}
   color1: {r: 1, g: 0, b: 0, a: 1}
   color2: {r: 1, g: 1, b: 1, a: 1}
+  hitProbability: 0
 --- !u!4 &738797310
 Transform:
   m_ObjectHideFlags: 0
@@ -2035,6 +2045,7 @@ MonoBehaviour:
   _bullet15: {fileID: 1344115695}
   _bullet16: {fileID: 108232062}
   _reloadNoise: {fileID: 1872097475}
+  _animator: {fileID: 0}
 --- !u!1 &831755152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,6 +7694,17 @@ MonoBehaviour:
   _rigidbod: {fileID: 1059113971}
   _camera: {fileID: 831755152}
   _orientation: {fileID: 2003850611}
+  groundDrag: 0
+  jumpForce: 0
+  poweredJumpForce: 0
+  jumpCooldown: 0
+  airMultiplier: 0
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpkey: 32
+  powerJumpKey: 99
 --- !u!114 &1059113973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9016,6 +9038,7 @@ MonoBehaviour:
   _bullet5: {fileID: 232809611}
   _bullet6: {fileID: 775602791}
   _reloadNoise: {fileID: 1872097475}
+  _animator: {fileID: 0}
 --- !u!1 &2003850610
 GameObject:
   m_ObjectHideFlags: 0

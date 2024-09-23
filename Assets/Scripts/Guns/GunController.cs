@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
-
+using UnityEngine.Rendering.PostProcessing;
 
 public class GunController : MonoBehaviour
 {
@@ -107,6 +107,7 @@ public class GunController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             InteractBulletBox();
+            InteractM4();
         }
     }
 
@@ -122,6 +123,22 @@ public class GunController : MonoBehaviour
             if (target != null)
             {
                 target.Reloady();
+            }
+        }
+    }
+    void InteractM4()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+            Debug.Log("activo");
+
+
+            GunFloor target = hit.transform.GetComponent<GunFloor>();
+            if (target != null)
+            {
+                target.ActivateM4();
             }
         }
     }

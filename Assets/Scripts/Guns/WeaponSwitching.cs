@@ -9,7 +9,8 @@ public class WeaponSwitching : MonoBehaviour
     [SerializeField] private Animator _akReload, _pistolShoot;
 
 
-    static public int selectedWeapon = 0;
+    static public int selectedWeapon = 1;
+    static public bool isM4Available = false;
     void Start()
     {
         _akReload.keepAnimatorStateOnDisable = true;
@@ -19,88 +20,84 @@ public class WeaponSwitching : MonoBehaviour
         SelectWeapon();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
         int previousSelectedWeapon = selectedWeapon;
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+
+        
+        if (isM4Available)
         {
-            if(selectedWeapon >= transform.childCount - 1) 
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
-                //_akReload.Play("normalState", 0, 0f);
-                _pistolShoot.Play("Idle", 0, 0f);
-                selectedWeapon = 0;
-                BulletCounter._shootCooldown = false;
-                PistolBullets._shootCooldown = false;
+                if (selectedWeapon >= transform.childCount - 1)
+                {
+                    _pistolShoot.Play("Idle", 0, 0f);
+                    selectedWeapon = 0; 
+                    BulletCounter._shootCooldown = false;
+                    PistolBullets._shootCooldown = false;
+                }
+                else
+                {
+                    _akReload.Play("Reload_m4", 0, 0f);
+                    selectedWeapon++; 
+                    BulletCounter._shootCooldown = false;
+                    PistolBullets._shootCooldown = false;
+                }
             }
-            else
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                if (selectedWeapon <= 0)
+                {
+                    _akReload.Play("Reload_m4", 0, 0f);
+                    selectedWeapon = transform.childCount - 1; 
+                    BulletCounter._shootCooldown = false;
+                    PistolBullets._shootCooldown = false;
+                }
+                else
+                {
+                    _pistolShoot.Play("Idle", 0, 0f);
+                    selectedWeapon--; // Cambiar a pistola
+                    BulletCounter._shootCooldown = false;
+                    PistolBullets._shootCooldown = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
             {
                 _akReload.Play("Reload_m4", 0, 0f);
-                //_pistolShoot.Play("Reload_Pistol", 0, 0f);
-                selectedWeapon++;
+                selectedWeapon = 1; // Cambiar a M4
                 BulletCounter._shootCooldown = false;
                 PistolBullets._shootCooldown = false;
-
             }
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-            {
-                _akReload.Play("Reload_m4", 0, 0f);
-                //_pistolShoot.Play("normalState", 0, 0f);
-                selectedWeapon = transform.childCount -1 ;
-                BulletCounter._shootCooldown = false;
-                PistolBullets._shootCooldown = false;
 
-            }
-            else
-            {
-                //_akReload.Play("normalState", 0, 0f);
-                _pistolShoot.Play("Idle", 0, 0f);
-                selectedWeapon--;
-                BulletCounter._shootCooldown = false;
-                PistolBullets._shootCooldown = false;
-
-            }
-        }
+        
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            //_akReload.Play("normalState", 0, 0f);
             _pistolShoot.Play("Idle", 0, 0f);
-            selectedWeapon = 0;
+            selectedWeapon = 0; // Cambiar a pistola
             BulletCounter._shootCooldown = false;
             PistolBullets._shootCooldown = false;
-
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2)&& transform.childCount >=2)
-        {
-            _akReload.Play("Reload_m4", 0, 0f);
-            //_pistolShoot.Play("normalState", 0, 0f);
-            selectedWeapon = 1;
-            BulletCounter._shootCooldown = false;
-            PistolBullets._shootCooldown = false;
 
-        }
+
         if (previousSelectedWeapon != selectedWeapon)
         {
             SelectWeapon();
         }
 
-        if (selectedWeapon == 0)
+        if (selectedWeapon == 1)
         {
-
-            _akUI.SetActive(true);
-            _pistolUI.SetActive(false);
-
-        }
-        else if (selectedWeapon == 1)
-        {
-
             _akUI.SetActive(false);
-            _pistolUI.SetActive(true);
-
+            _pistolUI.SetActive(true); 
+        }
+        else if (selectedWeapon == 0 && isM4Available)
+        {
+            _akUI.SetActive(true); 
+            _pistolUI.SetActive(false);
         }
     }
 
@@ -109,7 +106,8 @@ public class WeaponSwitching : MonoBehaviour
         int i = 0;
         foreach (Transform weapon in transform)
         {
-            if (i == selectedWeapon) 
+
+            if (i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
             }
@@ -117,7 +115,7 @@ public class WeaponSwitching : MonoBehaviour
             {
                 weapon.gameObject.SetActive(false);
             }
-            i++; 
+            i++;
         }
     }
 }
