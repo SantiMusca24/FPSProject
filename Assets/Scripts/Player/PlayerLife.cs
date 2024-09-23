@@ -24,18 +24,20 @@ public class PlayerLife : MonoBehaviour
     {
         if (enemyView.canSeePlayer == true)
         {
-            _playerCurrentLife -= enemyView.laserDmg;
-            Debug.Log(enemyView.laserDmg + " de daño recibido, " + _playerCurrentLife + " de vida restante");
-            
-            if (_playerCurrentLife <= 0)
+            if (enemyView.hitProbability >=3)
             {
+             _playerCurrentLife -= enemyView.laserDmg;
+             Debug.Log(enemyView.laserDmg + " de daño recibido, " + _playerCurrentLife + " de vida restante");
+
+                if (_playerCurrentLife <= 0)
+                {
                 Destroy (this.gameObject);
+                }
+            }
+            else
+            {
+                Debug.Log("Tiro esquivado");
             }
         }
-        else
-        {
-
-        }
-
     }
 }

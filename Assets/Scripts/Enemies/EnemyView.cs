@@ -24,6 +24,7 @@ public class EnemyView : MonoBehaviour
     public Material hitCheck;
     public Color color1;
     public Color color2;
+    public int hitProbability = Random.Range(1,11);
 
     private IEnumerator FOVRoutine()
     {
