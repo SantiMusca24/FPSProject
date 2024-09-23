@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticEnemy : MonoBehaviour
+/*public class StaticEnemy : MonoBehaviour
 {
 
     [SerializeField] float _enemyMaxLife;
@@ -21,3 +21,4 @@ public class StaticEnemy : MonoBehaviour
 
     
 }
+*/
