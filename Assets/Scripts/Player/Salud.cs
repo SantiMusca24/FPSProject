@@ -22,7 +22,7 @@ public class Salud : MonoBehaviour
     {
         if (health <= 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Death_Scene");
         }
        
     }
