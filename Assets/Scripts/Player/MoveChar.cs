@@ -31,6 +31,7 @@ public class MoveChar : MonoBehaviour
     public KeyCode powerJumpKey = KeyCode.C; // Tecla para activar el doble salto
     private bool powerJumpActive = false;
     public string sceneName;
+    public GameObject mask;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,12 +84,14 @@ public class MoveChar : MonoBehaviour
     }
         if (Gas.maskOn == false && Input.GetKeyDown(KeyCode.M))
         {
+            mask.SetActive(true);
             Gas.maskOn = true;
             
         }
         else if (Gas.maskOn == true && Input.GetKeyDown(KeyCode.M))
         {
             Gas.maskOn = false;
+            mask.SetActive(false);
         }
            
        }
