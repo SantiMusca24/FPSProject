@@ -16,6 +16,7 @@ public class WeaponSwitching : MonoBehaviour
         _akReload.keepAnimatorStateOnDisable = true;
         _pistolShoot.keepAnimatorStateOnDisable = true;
 
+        isM4Available = false;
 
         SelectWeapon();
     }

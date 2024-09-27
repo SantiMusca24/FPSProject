@@ -37,6 +37,7 @@ public class GunController : MonoBehaviour
     [SerializeField] static public bool _infShot = false;
 
 
+
     void Update()
     {
         if (WeaponSwitching.selectedWeapon == 0)
@@ -164,7 +165,16 @@ public class GunController : MonoBehaviour
             GameObject impactGO =Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGO, 2f);
         }
-        
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            MineScript target = hit.transform.GetComponent<MineScript>();
+            if (target != null)
+            {
+                target.explodeee();
+            }
+            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impactGO, 2f);
+        }
     }
     IEnumerator infShotThing()
     {
