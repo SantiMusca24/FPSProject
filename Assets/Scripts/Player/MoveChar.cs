@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MoveChar : MonoBehaviour
 {
 
-
     [SerializeField] private float _speed = 5;
 
     public Rigidbody _rigidbod;
@@ -32,77 +31,92 @@ public class MoveChar : MonoBehaviour
     private bool powerJumpActive = false;
     public string sceneName;
     public GameObject mask;
-    // Start is called before the first frame update
+    
+    //TP2 Santiago Muscatiello (Delegates)
+    public delegate void MovementDelegate(); 
+    public delegate void JumpDelegate(float force);
+    public MovementDelegate movementDelegate = delegate { };
+    public JumpDelegate jumpDelegate = delegate { };
+
+
+
+    private void Awake()
+    {
+        movementDelegate += Move;
+        jumpDelegate += Jump;
+    }
     void Start()
     {
         _speed = 5;
         readyToJump = true;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
             SceneManager.LoadScene("SampleScene");
         }
-        
+
         right = Input.GetAxisRaw("Horizontal");
         forward = Input.GetAxisRaw("Vertical");
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        if (grounded) 
+        if (grounded)
         {
             _rigidbod.drag = groundDrag;
+
             if (Input.GetKey(jumpkey) && readyToJump)
             {
-                readyToJump = false;  // Desactivar el salto hasta que se complete el cooldown
+                readyToJump = false;
 
                 if (powerJumpActive)
                 {
-                    // Usar la fuerza aumentada si el poder de salto está activo
-                    Jump(poweredJumpForce);
-                    powerJumpActive = false; // Desactivar el poder de salto después de usarlo
+                    jumpDelegate?.Invoke(poweredJumpForce); 
+                    powerJumpActive = false;
                     Debug.Log("Salto con poder realizado");
                 }
                 else
                 {
-                    // Usar la fuerza de salto normal si no está activo el poder de salto
-                    Jump(jumpForce);
+                    jumpDelegate?.Invoke(jumpForce); 
                 }
 
-                Invoke(nameof(ResetJump), jumpCooldown); // Iniciar el cooldown para el próximo salto
+                Invoke(nameof(ResetJump), jumpCooldown);
             }
+
+
         }
         else
         {
             _rigidbod.drag = 0;
         }
-         if (Input.GetKeyDown(powerJumpKey) && grounded)
-    {
-        powerJumpActive = true;
-        Debug.Log("Poder de salto activado");
-    }
+        if (Input.GetKeyDown(powerJumpKey) && grounded)
+        {
+            powerJumpActive = true;
+            Debug.Log("Poder de salto activado");
+        }
         if (Gas.maskOn == false && Input.GetKeyDown(KeyCode.M))
         {
             mask.SetActive(true);
             Gas.maskOn = true;
-            
+
         }
         else if (Gas.maskOn == true && Input.GetKeyDown(KeyCode.M))
         {
             Gas.maskOn = false;
             mask.SetActive(false);
         }
-           
-       }
+        
+
+    }
 
     private void FixedUpdate()
     {
         //if (right != 0 && !Physics.Raycast(transform.position, Vector3.right, rayDist, wallLayerMask)
-        Move();
+
         transform.rotation = _orientation.rotation;
 
-
+        movementDelegate();
     }
 
 
@@ -113,7 +127,7 @@ public class MoveChar : MonoBehaviour
 
 
         _rigidbod.MovePosition(transform.position + (_dir1 + _dir2) * _speed * Time.fixedDeltaTime); // TERCER MODO EXPLICADO, ES EL QUE USA EL PROFE
-        //_rigidbod.MovePosition(transform.position + _dir2 * _speed * Time.fixedDeltaTime); // TERCER MODO EXPLICADO, ES EL QUE USA EL PROFE
+                                                                                                     //_rigidbod.MovePosition(transform.position + _dir2 * _speed * Time.fixedDeltaTime); // TERCER MODO EXPLICADO, ES EL QUE USA EL PROFE
 
 
 
@@ -122,7 +136,7 @@ public class MoveChar : MonoBehaviour
 
     private void Jump(float jumpForce)
     {
-        _rigidbod.velocity = new Vector3(_rigidbod.velocity.x,0f,_rigidbod.velocity.z);
+        _rigidbod.velocity = new Vector3(_rigidbod.velocity.x, 0f, _rigidbod.velocity.z);
 
         _rigidbod.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
