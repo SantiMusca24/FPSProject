@@ -39,7 +39,8 @@ public class MoveChar : MonoBehaviour
     public MovementDelegate movementDelegate = delegate { };
     public JumpDelegate jumpDelegate = delegate { };
 
-    private int xp;
+    //TP2 Santiago Muscatiello(Diccionario)
+    private int points;
     [SerializeField] private EnemyScoreManager lootData;
 
     private void Awake()
@@ -151,10 +152,11 @@ public class MoveChar : MonoBehaviour
 
     }
 
+    //TP2 Santiago Muscatiell(Diccionario)
     public void GetLoot(EnemyScoreManager.LootData lootData)
     {
-        xp += lootData.xp;
-        Debug.Log(xp);
+        points += lootData.points;
+        Debug.Log("ganaste"+points);
 
     }
 }

@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class EnemyScoreManager : MonoBehaviour
 {
+    //TP2 Santiago Muscatiello(diccionario)
     public static EnemyScoreManager Instance { get; private set; }
      
     public struct LootData
     {
-        public int xp;
+        public int points;
     }
     public enum EnemyType
     {
@@ -30,8 +31,8 @@ public class EnemyScoreManager : MonoBehaviour
 
         
         DontDestroyOnLoad(gameObject);
-        enemyScores.Add(EnemyType.Melee, new LootData{xp= 100});
-        enemyScores.Add(EnemyType.Flying, new LootData { xp = 200 });
+        enemyScores.Add(EnemyType.Melee, new LootData{points= 100});
+        enemyScores.Add(EnemyType.Flying, new LootData { points = 200 });
     }
 
     public LootData GetPoints(EnemyType enemyType)
@@ -40,7 +41,7 @@ public class EnemyScoreManager : MonoBehaviour
         {
             return lootData;
         }
-        return new LootData { xp = 0 };
+        return new LootData { points = 0 };
     }
 
 }

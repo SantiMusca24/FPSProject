@@ -177,6 +177,7 @@ public class GunClass : MonoBehaviour
             EnemyHealthClass target = hit.transform.GetComponent<EnemyHealthClass>();
             if (target != null && target.TakeDamage(damage))
             {
+                //TPS Santiago Muscatiello (diccionario)
                 EnemyHealthClass enemy = target as EnemyHealthClass;
                 if (enemy != null)
                 {
