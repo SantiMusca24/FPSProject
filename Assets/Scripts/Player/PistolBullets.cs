@@ -82,7 +82,7 @@ public class PistolBullets : MonoBehaviour
         }
 
         // RECARGAR CON R
-        if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown && GunController._pistolMunnition > 0)
+        if (Input.GetKeyDown(KeyCode.R) && _currentBullets != _maxBullets && !_shootCooldown && GunClass._pistolMunnition > 0)
         {
             _reloadNoise.Play();
             _shootCooldown = true;
@@ -100,9 +100,9 @@ public class PistolBullets : MonoBehaviour
         IEnumerator reloadSlow()
         {
             yield return new WaitForSeconds(1.5f);
-            GunController._pistolMunnition--;
+            GunClass._pistolMunnition--;
             _currentBullets = _maxBullets;
-            GunController._canChangePistolMunnition = true;
+            GunClass._canChangePistolMunnition = true;
         }
 
     }

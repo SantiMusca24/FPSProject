@@ -6,9 +6,9 @@ using TMPro;
 using UnityEngine.Rendering.PostProcessing;
 
 
-public class GunClass : MonoBehaviour
+public class GunClass : WeaponSwitching
 {
-    public float damage = 10f;
+    public float damage = 10;
     public float range = 100f;
     public float fireRate = 15f;
 
@@ -26,9 +26,10 @@ public class GunClass : MonoBehaviour
 
     [SerializeField] static public bool _canChangePistolMunnition = true;
     [SerializeField] static public bool _canChangeAkMunnition = true;
-    [SerializeField] static public int _pistolMunnition = 3;
-    [SerializeField] static public int _akMunnition = 3;
+    [SerializeField] static public int _pistolMunnition;
+    [SerializeField] static public int _akMunnition;
 
+    [SerializeField] private TMP_Text _currentGunText;
     [SerializeField] private TMP_Text _pistolMunnitionText;
     [SerializeField] private TMP_Text _akMunnitionText;
     [SerializeField] private GameObject _pistolMunnitionObj;
@@ -38,23 +39,34 @@ public class GunClass : MonoBehaviour
     [SerializeField] static public bool _infShot = false;
     [SerializeField] protected MoveChar moveChar;
 
-    void Update()
+    public override void Start()
     {
-        if (WeaponSwitching.selectedWeapon == 0)
+        base.Start();
+        _pistolMunnition = handgun.rel;
+        _akMunnition = machinegun.rel;
+    }
+    public override void Update()
+    {
+        base.Update();
+        if (selectedWeapon == 0)
         {
+            _currentGunText.text = "" + machinegun.name;
+            damage = machinegun.dmg;
             _pistolMunnitionObj.SetActive(false);
             _akMunnitionObj.SetActive(true);
         }
-        else if (WeaponSwitching.selectedWeapon == 1)
+        else if (selectedWeapon == 1)
         {
+            _currentGunText.text = "" + handgun.name;
+            damage = handgun.dmg;
             _pistolMunnitionObj.SetActive(true);
             _akMunnitionObj.SetActive(false);
         }
 
         if (_infShot)
         {
-            BulletCounter._currentBullets = 16;
-            PistolBullets._currentBullets = 6;
+            BulletCounter._currentBullets = machinegun.amm;
+            PistolBullets._currentBullets = handgun.amm;
         }
 
         if (Input.GetKeyDown(KeyCode.L) && _canActivateInfShot)
@@ -85,7 +97,7 @@ public class GunClass : MonoBehaviour
         _akMunnitionText.text = "x" + _akMunnition;
 
 
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && WeaponSwitching.selectedWeapon == 0)
+        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && selectedWeapon == 0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -94,7 +106,7 @@ public class GunClass : MonoBehaviour
                 Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
             }
         }
-        else if (Input.GetMouseButtonDown(0) && WeaponSwitching.selectedWeapon == 1 && PistolBullets._canShoot && !PistolBullets._shootCooldown)
+        else if (Input.GetMouseButtonDown(0) && selectedWeapon == 1 && PistolBullets._canShoot && !PistolBullets._shootCooldown)
         {
             Shoot();
             _animator.SetTrigger("Fire");
@@ -166,8 +178,8 @@ public class GunClass : MonoBehaviour
         muzzleFlash.Play();
         muzzleFlash2.Play();
         _shootNoise.Play();
-        if (WeaponSwitching.selectedWeapon == 0) BulletCounter._currentBullets--;
-        else if (WeaponSwitching.selectedWeapon == 1) PistolBullets._currentBullets--;
+        if (selectedWeapon == 0) BulletCounter._currentBullets--;
+        else if (selectedWeapon == 1) PistolBullets._currentBullets--;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {

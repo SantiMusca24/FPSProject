@@ -6,8 +6,8 @@ public class bulletBox : MonoBehaviour, IInteractuable
 {
     public void Interact()
     {
-        if (WeaponSwitching.selectedWeapon == 0) GunController._akMunnition = 3;
-        else if (WeaponSwitching.selectedWeapon == 1) GunController._pistolMunnition = 3;
+        if (WeaponSwitching.selectedWeapon == 0) GunClass._akMunnition = WeaponSwitching.machinegun.rel;
+        else if (WeaponSwitching.selectedWeapon == 1) GunClass._pistolMunnition = WeaponSwitching.handgun.rel;
     }
 
 }

@@ -7,12 +7,35 @@ public class WeaponSwitching : MonoBehaviour
 
     [SerializeField] private GameObject _akUI, _pistolUI;
     [SerializeField] private Animator _akReload, _pistolShoot;
+    public struct Wpon
+    {
+        public string name; // Nombre del arma
+        public int dmg; // Daño que inflige
+        public int amm; // Munición máxima
+        public int rel; // Recargas
+    }
 
+    static public Wpon handgun;
+    static public Wpon machinegun;
 
     static public int selectedWeapon = 1;
     static public bool isM4Available = false;
-    void Start()
+    public virtual void Start()
     {
+
+        handgun = new Wpon();
+        handgun.name = "Pistola";
+        handgun.dmg = 10;
+        handgun.amm = 6;
+        handgun.rel = 3;
+
+        machinegun = new Wpon();
+        machinegun.name = "Rifle";
+        machinegun.dmg = 5;
+        machinegun.amm = 16;
+        machinegun.rel = 5;
+        
+
         _akReload.keepAnimatorStateOnDisable = true;
         _pistolShoot.keepAnimatorStateOnDisable = true;
 
@@ -22,7 +45,7 @@ public class WeaponSwitching : MonoBehaviour
     }
 
 
-    void Update()
+    public virtual void Update()
     {
 
         int previousSelectedWeapon = selectedWeapon;
