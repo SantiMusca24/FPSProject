@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,7 +39,8 @@ public class MoveChar : MonoBehaviour
     public MovementDelegate movementDelegate = delegate { };
     public JumpDelegate jumpDelegate = delegate { };
 
-
+    private int xp;
+    [SerializeField] private EnemyScoreManager lootData;
 
     private void Awake()
     {
@@ -146,6 +148,13 @@ public class MoveChar : MonoBehaviour
     {
         readyToJump = true;
 
+
+    }
+
+    public void GetLoot(EnemyScoreManager.LootData lootData)
+    {
+        xp += lootData.xp;
+        Debug.Log(xp);
 
     }
 }

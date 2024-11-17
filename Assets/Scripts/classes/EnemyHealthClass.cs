@@ -23,14 +23,14 @@ public abstract class EnemyHealthClass : MonoBehaviour
     protected AudioSource gruntz;
     protected string debugTest;
     private bool didHalfHealth = false;
-
-    protected virtual void Awake()
+    [SerializeField] public EnemyScoreManager.EnemyType enemyType;
+protected virtual void Awake()
     {
         // Buscar el EnemyManager en la escena
         enemyManager = FindObjectOfType<WinCondition>();
         
     }
-    public void TakeDamage(float amount)
+    public bool TakeDamage(float amount)
     {
         if (health <= halfHealth && !didHalfHealth)
         {
@@ -46,8 +46,9 @@ public abstract class EnemyHealthClass : MonoBehaviour
         if (health <= 0f)
         {
             Die();
+            return true;
         }
-
+        return false;
     }
 
     public void Die()

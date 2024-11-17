@@ -36,8 +36,7 @@ public class GunClass : MonoBehaviour
 
     [SerializeField] private bool _canActivateInfShot = true;
     [SerializeField] static public bool _infShot = false;
-
-
+    [SerializeField] protected MoveChar moveChar;
 
     void Update()
     {
@@ -176,9 +175,14 @@ public class GunClass : MonoBehaviour
 
 
             EnemyHealthClass target = hit.transform.GetComponent<EnemyHealthClass>();
-            if (target !=null)
+            if (target != null && target.TakeDamage(damage))
             {
-                target.TakeDamage(damage);                
+                EnemyHealthClass enemy = target as EnemyHealthClass;
+                if (enemy != null)
+                {
+                    moveChar.GetLoot(EnemyScoreManager.Instance.GetPoints(enemy.enemyType));
+                }
+                  
             }
             /*EnemyHealth targetDron = hit.transform.GetComponent<EnemyHealth>();
             if (targetDron != null)
