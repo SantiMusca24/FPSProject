@@ -17325,7 +17325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e994d90ac6703ba4095ba0cfe1c939b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 50
   _rigidbod: {fileID: 1059113971}
   _camera: {fileID: 831755152}
   _orientation: {fileID: 2003850611}
@@ -27003,14 +27003,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108681932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f210571eadb614042a7c299a9c23ed16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followData:
     player: {fileID: 1059113970}
-    followDistance: 4
+    followDistance: 3
     moveSpeed: 2
   bombData:
     bombPrefab: {fileID: 5108146474209183359, guid: efee21acf187c3e459e565a1db957452, type: 3}

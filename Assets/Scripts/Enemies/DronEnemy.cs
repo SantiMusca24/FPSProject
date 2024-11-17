@@ -3,19 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DronEnemy : MonoBehaviour
+  
 {
-    public Transform player;             
-    public float followDistance = 10f;   
-    public float moveSpeed = 5f;         
-    public GameObject bombPrefab;        
-    public Transform bombSpawnPoint;    
-    public float bombDropInterval = 5f;  
+    // Datos de seguimiento
+    [System.Serializable]
+    public struct FollowData
+    {
+        public Transform player;
+        public float followDistance;
+        public float moveSpeed;
+    }
 
-    private float bombTimer;             
+    // Datos de bombas
+    [System.Serializable]
+    public struct BombData
+    {
+        public GameObject bombPrefab;
+        public Transform bombSpawnPoint;
+        public float bombDropInterval;
+    }
+
+   
+    public FollowData followData;
+    public BombData bombData;
+    private float bombTimer;
 
     void Start()
     {
-        bombTimer = bombDropInterval; // Inicializamos el temporizador
+        // Inicializamos el temporizador
+        bombTimer = bombData.bombDropInterval;
     }
 
     void Update()
@@ -27,21 +43,30 @@ public class DronEnemy : MonoBehaviour
     // El dron sigue al jugador manteniendo una distancia específica
     void FollowPlayer()
     {
-        Vector3 targetPosition = player.position + Vector3.up * followDistance; 
-        Vector3 direction = (targetPosition - transform.position).normalized;   
-        transform.position += direction * moveSpeed * Time.deltaTime;           
+        // Calculamos la posición objetivo
+        Vector3 targetPosition = followData.player.position + Vector3.up * followData.followDistance;
+
+        // Calculamos la dirección
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        // Movemos el dron hacia la posición objetivo
+        transform.position += direction * followData.moveSpeed * Time.deltaTime;
     }
 
     // Lanza bombas hacia el jugador
     void DropBombs()
     {
+        // Disminuimos el temporizador
         bombTimer -= Time.deltaTime;
 
+        // Verificamos si es hora de lanzar una bomba
         if (bombTimer <= 0f)
         {
-            // Lanza una bomba
-            Instantiate(bombPrefab, bombSpawnPoint.position, Quaternion.identity);
-            bombTimer = bombDropInterval; // Reinicia el temporizador
+            // Lanzamos una bomba
+            Instantiate(bombData.bombPrefab, bombData.bombSpawnPoint.position, Quaternion.identity);
+
+            // Reiniciamos el temporizador
+            bombTimer = bombData.bombDropInterval;
         }
     }
 }

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.EditorTools;
@@ -6,8 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class MoveChar : MonoBehaviour
 {
+    //TP2 LorenzoMarmol(SETTERS AND GETTERS)
+    [SerializeField]
+    private float _speed = 5;
 
-    [SerializeField] private float _speed = 5;
+    [SerializeField]
+    public float Speed
+    {
+        get { return _speed; }
+        set
+        {
+            if (value > 5)
+            {
+                _speed = 5;
+            }
+            else
+            {
+                _speed = value;
+            }
+        }
+    }
+
 
     public Rigidbody _rigidbod;
     public GameObject _camera;
@@ -43,6 +63,8 @@ public class MoveChar : MonoBehaviour
     private int points;
     [SerializeField] private EnemyScoreManager lootData;
 
+   
+    
     private void Awake()
     {
         movementDelegate += Move;
@@ -50,7 +72,8 @@ public class MoveChar : MonoBehaviour
     }
     void Start()
     {
-        _speed = 5;
+      
+        Speed = 5;
         readyToJump = true;
     }
 
