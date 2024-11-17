@@ -20,6 +20,8 @@ public class WeaponSwitching : MonoBehaviour
 
     static public int selectedWeapon = 1;
     static public bool isM4Available = false;
+
+    //TP2 - Manuel Pereiro (agregado structs)
     public virtual void Start()
     {
 

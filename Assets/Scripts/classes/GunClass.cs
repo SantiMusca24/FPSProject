@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using TMPro;
 using UnityEngine.Rendering.PostProcessing;
 
-
+//TP2 - Manuel Pereiro
 public class GunClass : WeaponSwitching
 {
     public float damage = 10;
