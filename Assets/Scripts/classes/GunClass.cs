@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 using TMPro;
 using UnityEngine.Rendering.PostProcessing;
 
+
 public class GunClass : MonoBehaviour
 {
     public float damage = 10f;
@@ -109,6 +110,7 @@ public class GunClass : MonoBehaviour
         {
             InteractBulletBox();
             InteractM4();
+            InteractKey();
         }
     }
 
@@ -117,13 +119,13 @@ public class GunClass : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+          //  Debug.Log(hit.transform.name);
 
 
             bulletBox target = hit.transform.GetComponent<bulletBox>();
             if (target != null)
             {
-                target.Reloady();
+                target.Interact();
             }
         }
     }
@@ -132,14 +134,30 @@ public class GunClass : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
-            Debug.Log("activo");
+            //Debug.Log(hit.transform.name);
+           // Debug.Log("activo");
 
 
             GunFloor target = hit.transform.GetComponent<GunFloor>();
             if (target != null)
             {
-                target.ActivateM4();
+                target.Interact();
+            }
+        }
+    }
+    void InteractKey()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            //Debug.Log(hit.transform.name);
+           // Debug.Log("activo");
+
+
+            key target = hit.transform.GetComponent<key>();
+            if (target != null)
+            {
+                target.Interact();
             }
         }
     }
@@ -160,13 +178,13 @@ public class GunClass : MonoBehaviour
             EnemyHealthClass target = hit.transform.GetComponent<EnemyHealthClass>();
             if (target !=null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(damage);                
             }
-            EnemyHealth targetDron = hit.transform.GetComponent<EnemyHealth>();
-            if (target != null)
+            /*EnemyHealth targetDron = hit.transform.GetComponent<EnemyHealth>();
+            if (targetDron != null)
             {
-                target.TakeDamage(damage);
-            }
+                targetDron.TakeDamage(damage);
+            }*/
 
             GameObject impactGO =Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGO, 2f);

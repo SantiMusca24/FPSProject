@@ -123,7 +123,7 @@ public class GunController : MonoBehaviour
             bulletBox target = hit.transform.GetComponent<bulletBox>();
             if (target != null)
             {
-                target.Reloady();
+                target.Interact();
             }
         }
     }
@@ -139,7 +139,7 @@ public class GunController : MonoBehaviour
             GunFloor target = hit.transform.GetComponent<GunFloor>();
             if (target != null)
             {
-                target.ActivateM4();
+                target.Interact();
             }
         }
     }

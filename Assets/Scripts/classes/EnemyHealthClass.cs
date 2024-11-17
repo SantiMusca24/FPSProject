@@ -2,24 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthClass : MonoBehaviour
+//TP2 - Manuel Pereiro
+
+public abstract class EnemyHealthClass : MonoBehaviour
 {
     public Transform player;
-    public float followDistance;
-    public float moveSpeed;
+    protected float followDistance;
+    protected float moveSpeed;
     public GameObject bombPrefab;
     public Transform bombSpawnPoint;
-    public float bombDropInterval;
+    protected float bombDropInterval;
 
-    public float bombTimer;
+    protected float bombTimer;
 
-    public float health;
+    protected float health;
+    public float halfHealth;
 
     private WinCondition enemyManager;
 
-    public string debugTest;
+    protected AudioSource gruntz;
+    protected string debugTest;
+    private bool didHalfHealth = false;
 
-    private void Start()
+    protected virtual void Awake()
     {
         // Buscar el EnemyManager en la escena
         enemyManager = FindObjectOfType<WinCondition>();
@@ -27,12 +32,22 @@ public class EnemyHealthClass : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        Debug.Log(debugTest + "health: " + health);
+        if (health <= halfHealth && !didHalfHealth)
+        {
+            //Debug.Log("TAL");
+            HalfHealth();
+            didHalfHealth = true;
+        }        
+        if (health > 0)
+        {
+            health -= amount;
+            Debug.Log(debugTest + "health: " + health);
+        }
         if (health <= 0f)
         {
             Die();
         }
+
     }
 
     public void Die()
@@ -42,9 +57,12 @@ public class EnemyHealthClass : MonoBehaviour
             Debug.Log("enemyManager != null");
             enemyManager.EnemyDied();
         }
+        else Debug.Log("NULL");
         //if (enemyManager == null) Debug.Log("sasfsd");
 
         Destroy(gameObject);
     }
+
+    protected abstract void HalfHealth();
 
 }
