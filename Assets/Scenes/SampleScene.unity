@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1355,6 +1355,7 @@ GameObject:
   - component: {fileID: 170753026}
   - component: {fileID: 170753027}
   - component: {fileID: 170753028}
+  - component: {fileID: 170753029}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -1386,7 +1387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170753025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f88dbf5ae95b02d4a9c91df946021a13, type: 3}
   m_Name: 
@@ -1422,6 +1423,34 @@ MonoBehaviour:
   _pistolUI: {fileID: 1997391121}
   _akReload: {fileID: 228086913234689885}
   _pistolShoot: {fileID: 893260484}
+--- !u!114 &170753029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170753025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7702c24db1acb0541b0a382a80e47ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 100
+  fireRate: 15
+  fpsCam: {fileID: 963194227}
+  muzzleFlash: {fileID: 948944060}
+  muzzleFlash2: {fileID: 697835815}
+  impactEffect: {fileID: 1783897956761910102, guid: b22fec378a1156c42a9fe256db70f515, type: 3}
+  _shootNoise: {fileID: 181212670}
+  _emptyNoise: {fileID: 1996961962}
+  _animator: {fileID: 893260484}
+  _pistolMunnitionText: {fileID: 900226886}
+  _akMunnitionText: {fileID: 2018983934}
+  _pistolMunnitionObj: {fileID: 900226884}
+  _akMunnitionObj: {fileID: 2018983932}
+  _canActivateInfShot: 1
+  moveChar: {fileID: 1059113972}
 --- !u!1 &173777329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3878,10 +3907,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 599930899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e24b36488e77f540b7afce4285564b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 81fa0d027f9918b42a68bbe6c1cb1356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  player: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  bombSpawnPoint: {fileID: 0}
+  halfHealth: 0
+  enemyType: 0
+  blueAudio: {fileID: 1996961960}
 --- !u!1 &618861887
 GameObject:
   m_ObjectHideFlags: 0
@@ -17044,6 +17078,7 @@ MonoBehaviour:
   powerJumpKey: 99
   sceneName: SampleScene
   mask: {fileID: 1708156283}
+  lootData: {fileID: 1842983237}
 --- !u!114 &1059113973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23369,10 +23404,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632688533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e24b36488e77f540b7afce4285564b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d6e55c5a1b7bf24f8053f302485c11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  player: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  bombSpawnPoint: {fileID: 0}
+  halfHealth: 0
+  enemyType: 0
+  redAudio: {fileID: 1996961960}
 --- !u!1 &1644890568
 GameObject:
   m_ObjectHideFlags: 0
@@ -24320,6 +24360,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8291095224949713478, guid: be7fdebf292bf2e47be2bb732f977bd0, type: 3}
   m_PrefabInstance: {fileID: 1267305656}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1842983236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842983238}
+  - component: {fileID: 1842983237}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1842983237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842983236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe13227f50548644a21be7a9e42ea42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1842983238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842983236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.8003798, y: -5.3549724, z: 5.531894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1846543813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8291095224949713478, guid: be7fdebf292bf2e47be2bb732f977bd0, type: 3}
@@ -26361,6 +26445,7 @@ GameObject:
   - component: {fileID: 2108681935}
   - component: {fileID: 2108681934}
   - component: {fileID: 2108681938}
+  - component: {fileID: 2108681939}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -26391,7 +26476,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108681932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f210571eadb614042a7c299a9c23ed16, type: 3}
   m_Name: 
@@ -26486,6 +26571,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+--- !u!114 &2108681939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108681932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b408a29ed79d6946a28ee1a3382cae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1059113970}
+  bombPrefab: {fileID: 5108146474209183359, guid: efee21acf187c3e459e565a1db957452, type: 3}
+  bombSpawnPoint: {fileID: 2108681933}
+  halfHealth: 0
+  enemyType: 1
 --- !u!1 &2124210809
 GameObject:
   m_ObjectHideFlags: 0
@@ -27411,3 +27513,4 @@ SceneRoots:
   - {fileID: 1494308756}
   - {fileID: 1034871899}
   - {fileID: 1757625333}
+  - {fileID: 1842983238}
