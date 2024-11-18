@@ -7,6 +7,8 @@ using UnityEngine;
 public class DronClass : EnemyHealthClass
 {
     private bool escape = false;
+    private bool swaying = false;
+    private bool startedCounting = false;
 
     //TP2 - Manuel Pereiro
     protected override void Awake()
@@ -15,6 +17,9 @@ public class DronClass : EnemyHealthClass
         followDistance = 10f;
         moveSpeed = 5f;
         bombDropInterval = 5f;
+        escape = false;
+        swaying = false;
+        startedCounting = false;
 
         health = 30;
         halfHealth = 20;
@@ -35,15 +40,43 @@ public class DronClass : EnemyHealthClass
     // El dron sigue al jugador manteniendo una distancia específica
     void FollowPlayer()
     {
+        if (swaying)
+        {
+            if (!startedCounting)
+            {
+                StartCoroutine(returning());
+            }
+        }        
         Vector3 targetPosition = player.position + Vector3.up * followDistance; 
         Vector3 direction = (targetPosition - transform.position).normalized;   
         transform.position += direction * moveSpeed * Time.deltaTime;           
     }
     void LeavePlayer()
     {
+        if (!startedCounting)
+        {
+            StartCoroutine(leaving());
+        }
+        swaying = true;
+        StartCoroutine(leaving());
         Vector3 targetPosition2 = player.position + Vector3.up * followDistance;
         Vector3 direction2 = (targetPosition2 - transform.position).normalized;
         transform.position -= direction2 * moveSpeed * Time.deltaTime;
+    }
+
+    IEnumerator leaving()
+    {
+        startedCounting = true;
+        yield return new WaitForSeconds(5);
+        startedCounting = false;
+        escape = false;
+    }
+    IEnumerator returning()
+    {
+        startedCounting = true;
+        yield return new WaitForSeconds(5);
+        startedCounting = false;
+        escape = true;
     }
 
     // Lanza bombas hacia el jugador
