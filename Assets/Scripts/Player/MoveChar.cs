@@ -61,7 +61,7 @@ public class MoveChar : MonoBehaviour
     public JumpDelegate jumpDelegate = delegate { };
 
     //TP2 Santiago Muscatiello(Diccionario)
-    private int points;
+    public int points;
     [SerializeField] private EnemyScoreManager lootData;
     [SerializeField] private TMP_Text pointsText;
 
@@ -83,6 +83,7 @@ public class MoveChar : MonoBehaviour
 
     void Update()
     {
+        pointsText.text = "Points:" + points;
         if (Input.GetKeyDown(KeyCode.F1))
         {
             SceneManager.LoadScene("SampleScene");

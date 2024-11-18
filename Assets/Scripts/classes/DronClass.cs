@@ -21,7 +21,7 @@ public class DronClass : EnemyHealthClass
         swaying = false;
         startedCounting = false;
 
-        health = 30;
+        health = 40;
         halfHealth = 20;
         debugTest = "Dron";
         bombTimer = bombDropInterval;
