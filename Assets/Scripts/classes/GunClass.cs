@@ -41,9 +41,12 @@ public class GunClass : WeaponSwitching
     [SerializeField] static public bool _infShot = false;
     [SerializeField] protected MoveChar moveChar;
     [SerializeField] private GameObject cartel100;
-    
+
+    public static float extraDamage;
+
     public override void Start()
     {
+        extraDamage = 0;
         base.Start();
         _pistolMunnition = handgun.rel;
         _akMunnition = machinegun.rel;
@@ -54,14 +57,14 @@ public class GunClass : WeaponSwitching
         if (selectedWeapon == 0)
         {
             _currentGunText.text = "" + machinegun.name;
-            damage = machinegun.dmg;
+            damage = machinegun.dmg + extraDamage; // ACA SE DEFINE EL DAÑO DEL RIFLE. PARA SUMAR DAÑO PODÉS CAMBIAR DIRECTAMENTE LA VARIABLE "extraDamage"
             _pistolMunnitionObj.SetActive(false);
             _akMunnitionObj.SetActive(true);
         }
         else if (selectedWeapon == 1)
         {
             _currentGunText.text = "" + handgun.name;
-            damage = handgun.dmg;
+            damage = handgun.dmg + extraDamage; // ACA SE DEFINE EL DAÑO DE LA PISTOLA. PARA SUMAR DAÑO PODÉS CAMBIAR DIRECTAMENTE LA VARIABLE "extraDamage"
             _pistolMunnitionObj.SetActive(true);
             _akMunnitionObj.SetActive(false);
         }
@@ -203,7 +206,7 @@ public class GunClass : WeaponSwitching
             EnemyHealthClass target = hit.transform.GetComponent<EnemyHealthClass>();
             if (target != null && target.TakeDamage(damage))
             {
-                //TPS Santiago Muscatiello (diccionario)
+                //TP2 - Santiago Muscatiello (diccionario)
                 EnemyHealthClass enemy = target as EnemyHealthClass;
                 if (enemy != null)
                 {
@@ -211,6 +214,19 @@ public class GunClass : WeaponSwitching
                 }
                   
             }
+
+            OrbClass target2 = hit.transform.GetComponent<OrbClass>();
+            if (target2 != null)
+            {
+                //TPS Santiago Muscatiello (diccionario)
+                OrbClass enemy2 = target2 as OrbClass;
+                if (enemy2 != null)
+                {
+                    enemy2.Interact();
+                }
+
+            }
+
             /*EnemyHealth targetDron = hit.transform.GetComponent<EnemyHealth>();
             if (targetDron != null)
             {

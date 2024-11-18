@@ -1435,6 +1435,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7702c24db1acb0541b0a382a80e47ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _akUI: {fileID: 0}
+  _pistolUI: {fileID: 0}
+  _akReload: {fileID: 0}
+  _pistolShoot: {fileID: 0}
   damage: 10
   range: 100
   fireRate: 15
@@ -1445,11 +1449,14 @@ MonoBehaviour:
   _shootNoise: {fileID: 181212670}
   _emptyNoise: {fileID: 1996961962}
   _animator: {fileID: 893260484}
+  _currentGunText: {fileID: 0}
   _pistolMunnitionText: {fileID: 900226886}
   _akMunnitionText: {fileID: 2018983934}
   _pistolMunnitionObj: {fileID: 900226884}
   _akMunnitionObj: {fileID: 2018983932}
   _canActivateInfShot: 1
+  moveChar: {fileID: 0}
+  cartel100: {fileID: 0}
 --- !u!1 &173777329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,6 +3922,8 @@ MonoBehaviour:
   player: {fileID: 0}
   bombPrefab: {fileID: 0}
   bombSpawnPoint: {fileID: 0}
+  halfHealth: 0
+  enemyType: 0
   blueAudio: {fileID: 707393434}
 --- !u!1 &618861887
 GameObject:
@@ -17206,6 +17215,9 @@ MonoBehaviour:
   powerJumpKey: 99
   sceneName: SampleScene
   mask: {fileID: 1708156283}
+  points: 0
+  lootData: {fileID: 0}
+  pointsText: {fileID: 0}
 --- !u!114 &1059113973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23537,6 +23549,8 @@ MonoBehaviour:
   player: {fileID: 0}
   bombPrefab: {fileID: 0}
   bombSpawnPoint: {fileID: 0}
+  halfHealth: 0
+  enemyType: 0
   redAudio: {fileID: 1968744806}
 --- !u!1 &1644890568
 GameObject:
@@ -24071,6 +24085,125 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741629830}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1754483799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1754483804}
+  - component: {fileID: 1754483803}
+  - component: {fileID: 1754483802}
+  - component: {fileID: 1754483801}
+  - component: {fileID: 1754483800}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1754483800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754483799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70462271a9387cf4ba9305b0c733e27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbObj: {fileID: 1754483799}
+--- !u!135 &1754483801
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754483799}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1754483802
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754483799}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1754483803
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754483799}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1754483804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754483799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.83, y: 3.13439, z: -3.11}
+  m_LocalScale: {x: 1.2033, y: 1.2033, z: 1.2033}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757625329
 GameObject:
   m_ObjectHideFlags: 0
@@ -26762,6 +26895,8 @@ MonoBehaviour:
   player: {fileID: 1059113970}
   bombPrefab: {fileID: 5108146474209183359, guid: efee21acf187c3e459e565a1db957452, type: 3}
   bombSpawnPoint: {fileID: 2108681933}
+  halfHealth: 0
+  enemyType: 0
 --- !u!1 &2124210809
 GameObject:
   m_ObjectHideFlags: 0
@@ -27815,3 +27950,4 @@ SceneRoots:
   - {fileID: 1494308756}
   - {fileID: 1034871899}
   - {fileID: 1757625333}
+  - {fileID: 1754483804}
