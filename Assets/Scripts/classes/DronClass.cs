@@ -16,7 +16,7 @@ public class DronClass : EnemyHealthClass
         moveSpeed = 5f;
         bombDropInterval = 5f;
 
-        health = 30;
+        health = 40;
         halfHealth = 20;
         debugTest = "Dron";
         bombTimer = bombDropInterval;

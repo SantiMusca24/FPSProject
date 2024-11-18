@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 //TP2 - Manuel Pereiro
 public class GunClass : WeaponSwitching
@@ -38,7 +40,8 @@ public class GunClass : WeaponSwitching
     [SerializeField] private bool _canActivateInfShot = true;
     [SerializeField] static public bool _infShot = false;
     [SerializeField] protected MoveChar moveChar;
-
+    [SerializeField] private GameObject cartel100;
+    
     public override void Start()
     {
         base.Start();
@@ -142,6 +145,12 @@ public class GunClass : WeaponSwitching
     }
     void InteractM4()
     {
+        //TPS Santiago Muscatiello (uso de diccionario para acumlar puntos y poder recoger arma)
+        if (moveChar.points < 100) 
+        {
+            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            return;
+        }
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -153,11 +162,16 @@ public class GunClass : WeaponSwitching
             if (target != null)
             {
                 target.Interact();
+                moveChar.points -=100;
+                cartel100.SetActive(false);
+                Debug.Log($"Has usado 100 puntos. Puntos restantes: {moveChar.points}");
             }
         }
+        
     }
     void InteractKey()
     {
+       
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -236,4 +250,5 @@ public class GunClass : WeaponSwitching
         isDoubleShotActive = false;
         canActivateDoubleShot = true;
     }
+
 }
