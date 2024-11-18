@@ -16,6 +16,7 @@ public class EnemyScoreManager : MonoBehaviour
     {
         Melee,
         Flying
+        
     }
     private Dictionary<EnemyType, LootData> enemyScores = new Dictionary<EnemyType, LootData>();
     public void Awake()

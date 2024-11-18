@@ -33,7 +33,7 @@ public class WeaponSwitching : MonoBehaviour
 
         machinegun = new Wpon();
         machinegun.name = "Rifle";
-        machinegun.dmg = 5;
+        machinegun.dmg = 30;
         machinegun.amm = 16;
         machinegun.rel = 5;
 

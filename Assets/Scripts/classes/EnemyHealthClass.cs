@@ -23,7 +23,8 @@ public abstract class EnemyHealthClass : MonoBehaviour
     protected AudioSource gruntz;
     protected string debugTest;
     private bool didHalfHealth = false;
-    [SerializeField] public EnemyScoreManager.EnemyType enemyType;
+    //TP2 Santiago Muscatiello (diccionario)
+    [SerializeField] public  EnemyScoreManager.EnemyType enemyType;
 protected virtual void Awake()
     {
         // Buscar el EnemyManager en la escena

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MoveChar : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class MoveChar : MonoBehaviour
     //TP2 Santiago Muscatiello(Diccionario)
     private int points;
     [SerializeField] private EnemyScoreManager lootData;
+    [SerializeField] private TMP_Text pointsText;
 
    
     
@@ -75,6 +77,7 @@ public class MoveChar : MonoBehaviour
       
         Speed = 5;
         readyToJump = true;
+        pointsText.text = "Points: 0";
     }
 
 
@@ -179,6 +182,7 @@ public class MoveChar : MonoBehaviour
     public void GetLoot(EnemyScoreManager.LootData lootData)
     {
         points += lootData.points;
+        pointsText.text = "Points:" + points;
         Debug.Log("ganaste"+points);
 
     }

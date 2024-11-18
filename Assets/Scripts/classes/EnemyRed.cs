@@ -18,6 +18,7 @@ public class EnemyRed : EnemyHealthClass
     {
         gruntz.Play();
         health = 50;
+        Debug.Log("SE CURA" + health);
 
 
     }
