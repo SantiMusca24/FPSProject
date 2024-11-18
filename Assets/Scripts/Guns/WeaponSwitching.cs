@@ -36,7 +36,8 @@ public class WeaponSwitching : MonoBehaviour
         machinegun.dmg = 5;
         machinegun.amm = 16;
         machinegun.rel = 5;
-        
+
+        selectedWeapon = 1;
 
         _akReload.keepAnimatorStateOnDisable = true;
         _pistolShoot.keepAnimatorStateOnDisable = true;
@@ -101,7 +102,7 @@ public class WeaponSwitching : MonoBehaviour
         }
 
         
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && isM4Available)
         {
             _pistolShoot.Play("Idle", 0, 0f);
             selectedWeapon = 0; // Cambiar a pistola
