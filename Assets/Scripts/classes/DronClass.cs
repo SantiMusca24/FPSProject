@@ -6,6 +6,22 @@ using UnityEngine;
 
 public class DronClass : EnemyHealthClass
 {
+    //Lorenzo Marmol TP2 (structs)
+    public struct DronSettings
+    {
+        public float followDistance;
+        public float moveSpeed;
+        public float bombDropInterval; 
+        public bool startedCounting;
+        public float bombTimer;
+        public int health;
+        public int halfHealth;
+        public bool escape;
+        public bool swaying;
+    }
+
+
+    public DronSettings dronSettings;
     private bool escape = false;
     private bool swaying = false;
     private bool startedCounting = false;
@@ -14,24 +30,25 @@ public class DronClass : EnemyHealthClass
     protected override void Awake()
     {
         base.Awake();
-        followDistance = 10f;
-        moveSpeed = 5f;
-        bombDropInterval = 5f;
-        escape = false;
-        swaying = false;
-        startedCounting = false;
+        
+        dronSettings.followDistance = 10f;
+        dronSettings.moveSpeed = 5f;
+        dronSettings.bombDropInterval = 5f;
+        dronSettings.escape = false;
+        dronSettings.swaying = false;
+        dronSettings.startedCounting = false;
 
-        health = 40;
-        halfHealth = 20;
+        dronSettings.health = 40;
+        dronSettings.halfHealth = 20;
         debugTest = "Dron";
-        bombTimer = bombDropInterval;
+        dronSettings.bombTimer = dronSettings.bombDropInterval;
     }
   
     
 
     void Update()
     {
-        if (!escape) FollowPlayer();
+        if (!dronSettings.escape) FollowPlayer();
         else LeavePlayer();
 
         DropBombs();
@@ -40,62 +57,62 @@ public class DronClass : EnemyHealthClass
     // El dron sigue al jugador manteniendo una distancia específica
     void FollowPlayer()
     {
-        if (swaying)
+        if (dronSettings.swaying)
         {
-            if (!startedCounting)
+            if (!dronSettings.startedCounting)
             {
                 StartCoroutine(returning());
             }
         }        
-        Vector3 targetPosition = player.position + Vector3.up * followDistance; 
+        Vector3 targetPosition = player.position + Vector3.up * dronSettings.followDistance; 
         Vector3 direction = (targetPosition - transform.position).normalized;   
-        transform.position += direction * moveSpeed * Time.deltaTime;           
+        transform.position += direction * dronSettings.moveSpeed * Time.deltaTime;           
     }
     void LeavePlayer()
     {
-        if (!startedCounting)
+        if (!dronSettings.startedCounting)
         {
             StartCoroutine(leaving());
         }
-        swaying = true;
+        dronSettings.swaying = true;
         StartCoroutine(leaving());
-        Vector3 targetPosition2 = player.position + Vector3.up * followDistance;
+        Vector3 targetPosition2 = player.position + Vector3.up * dronSettings.followDistance;
         Vector3 direction2 = (targetPosition2 - transform.position).normalized;
-        transform.position -= direction2 * moveSpeed * Time.deltaTime;
+        transform.position -= direction2 * dronSettings.moveSpeed * Time.deltaTime;
     }
 
     IEnumerator leaving()
     {
-        startedCounting = true;
+        dronSettings.startedCounting = true;
         yield return new WaitForSeconds(5);
         startedCounting = false;
-        escape = false;
+        dronSettings.escape = false;
     }
     IEnumerator returning()
     {
-        startedCounting = true;
+        dronSettings.startedCounting = true;
         yield return new WaitForSeconds(5);
-        startedCounting = false;
-        escape = true;
+        dronSettings.startedCounting = false;
+        dronSettings.escape = true;
     }
 
     // Lanza bombas hacia el jugador
     void DropBombs()
     {
-        bombTimer -= Time.deltaTime;
+        dronSettings.bombTimer -= Time.deltaTime;
 
-        if (bombTimer <= 0f)
+        if (dronSettings.bombTimer <= 0f)
         {
             // Lanza una bomba
             Instantiate(bombPrefab, bombSpawnPoint.position, Quaternion.identity);
-            bombTimer = bombDropInterval; // Reinicia el temporizador
+            dronSettings.bombTimer = dronSettings.bombDropInterval; // Reinicia el temporizador
         }
     }
 
     protected override void HalfHealth()
     {
 
-        escape = true;
+        dronSettings.escape = true;
 
     }
 }
