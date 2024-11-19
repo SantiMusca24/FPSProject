@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageSpike : MonoBehaviour
 {
+    //Lorenzo Marmol 
     public bool invencible = false;
     public bool poisoned = false;
     public GameObject poisonIcon;

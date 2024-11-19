@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    //Lorenzo Marmol
     public string animationName;
     public Animator animator;
     public GameObject doorWall;

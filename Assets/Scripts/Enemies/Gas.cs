@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Gas : MonoBehaviour
 {
+    //Lorenzo Marmol
     public bool invencible = false;
     public GameObject infectionIcon;
     public float invencibleTime = 1f;
