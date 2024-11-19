@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class key : MonoBehaviour, IInteractuable
 {
-    // Start is called before the first frame update
+    // Lorenzo Marmol
     public GameObject doorKey;
     public GameObject ColiderDoor;
     public void Interact()

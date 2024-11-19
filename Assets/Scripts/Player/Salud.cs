@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Salud : MonoBehaviour
 {
+    //Lorenzo Marmol
     static public float health = 100;
     public float maxHealth = 100;
 
