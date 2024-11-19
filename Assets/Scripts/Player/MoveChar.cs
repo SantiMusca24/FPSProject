@@ -16,7 +16,7 @@ public class MoveChar : MonoBehaviour
     public float Speed
     {
         get { return _speed; }
-        set
+        set 
         {
             if (value > 5)
             {

@@ -60,7 +60,7 @@ public class GunClass : WeaponSwitching
             damage = machinegun.dmg + extraDamage; // ACA SE DEFINE EL DAÑO DEL RIFLE. PARA SUMAR DAÑO PODÉS CAMBIAR DIRECTAMENTE LA VARIABLE "extraDamage"
             _pistolMunnitionObj.SetActive(false);
             _akMunnitionObj.SetActive(true);
-        }
+        }   
         else if (selectedWeapon == 1)
         {
             _currentGunText.text = "" + handgun.name;
