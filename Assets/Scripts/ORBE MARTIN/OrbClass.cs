@@ -1,29 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OrbClass : MonoBehaviour
 {
 
     public GameObject orbObj;
+    private float currentCharge;
 
 
+    
 
-    // Start is called before the first frame update
-    void Start()
+    //TP2 Martin Rabanal (Getter y Setter)
+    public float Charge
     {
-        
+        get { return currentCharge; }
+        set
+        {
+            if (value>=0f)
+            {
+                currentCharge -= 1f;
+                Debug.Log("Objeto no destruido");
+
+            }
+            else
+            {
+                Destroy(orbObj);
+                Debug.Log("Objeto destruido");
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
     public void Interact()
     {
-        // ACA ESCRIBÍ LO QUE HAGA EL ORBE CUANDO LE DISPARÁS
-        Debug.Log("ORB INTERACT");
-        Destroy(orbObj); // esto hace que el orbe se destruya al final
+        Charge = 5f;
+        Debug.Log("funciona");
     }
+
+
+    private void FixedUpdate()
+    {
+        if (true)
+        {
+
+        }
+    }
+
+
 }

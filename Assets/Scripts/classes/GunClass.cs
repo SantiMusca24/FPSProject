@@ -10,6 +10,8 @@ using UnityEngine.UIElements;
 //TP2 - Manuel Pereiro
 public class GunClass : WeaponSwitching
 {
+
+
     public float damage = 10;
     public float range = 100f;
     public float fireRate = 15f;
@@ -222,7 +224,7 @@ public class GunClass : WeaponSwitching
                 OrbClass enemy2 = target2 as OrbClass;
                 if (enemy2 != null)
                 {
-                    enemy2.Interact();
+                    enemy2.Interact(); 
                 }
 
             }
