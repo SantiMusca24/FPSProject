@@ -15,7 +15,7 @@ public class DronClass : EnemyHealthClass
     {
         base.Awake();
         followDistance = 10f;
-        moveSpeed = 5f;
+        moveSpeed = 2f;
         bombDropInterval = 5f;
         escape = false;
         swaying = false;

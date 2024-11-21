@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameObject (2) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4258418845664201078, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
+      propertyPath: damageRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6784703083117431639, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
       propertyPath: m_Enabled
       value: 0
