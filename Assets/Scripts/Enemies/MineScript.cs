@@ -17,7 +17,9 @@ public class MineScript : MonoBehaviour
     [SerializeField] private float _randomX;
     [SerializeField] private float _randomZ;
     [SerializeField] private Material _material;
-    
+    [SerializeField] private ParticleSystem _particle;
+    [SerializeField] private MeshRenderer _mesh;
+    [SerializeField] private MeshRenderer _mesh2;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,17 +59,21 @@ public class MineScript : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             _material.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(0.5f);
-         
+            
             Instantiate(_explosionn, transform.position, Quaternion.identity);
-        
+            _particle.Play();
             _boooom.Play();
+            _mesh.enabled = false;
+            _mesh2.enabled = false;
 
             if (_distancePlayer < _viewRadius)
             {
                 Salud.health = Salud.health - 50;
             }
-
+            yield return new WaitForSeconds(0.5f);
             transform.position = new Vector3(70, 0.3f, 70);
+            _mesh.enabled = true;
+            _mesh2.enabled = true;
             _activated = false;
             yield return new WaitForSeconds(5);
             _randomX = UnityEngine.Random.Range(0, 21);

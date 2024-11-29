@@ -8,7 +8,9 @@ public class Bomb : MonoBehaviour
     public float explosionForce = 700f;
     public float bombDamage = 20f;
     private Vector3 explosionPosition;
-
+    public ParticleSystem explosion;
+    public MeshRenderer mesh;
+    public AudioSource bomba;
     void OnCollisionEnter(Collision collision)
     {
         explosionPosition = transform.position;
@@ -17,6 +19,9 @@ public class Bomb : MonoBehaviour
 
     void Explode()
     {
+        explosion.Play();
+        bomba.Play();
+        
         GetComponent<Collider>().enabled = false;
         
         Collider[] objectsInRange = Physics.OverlapSphere(explosionPosition, damageRadius);
@@ -51,8 +56,19 @@ public class Bomb : MonoBehaviour
             }
         }
 
-       
-        Destroy(gameObject);
+        float particleDuration = explosion.main.duration;
+
+        
+        // Destruir al padre con retraso, si existe
+        if (transform.parent != null)
+        {
+            Destroy(transform.parent.gameObject, particleDuration);
+            mesh.enabled = false;
+        }
+
+        // Destruir el propio objeto con retraso
+        Destroy(gameObject, particleDuration);
+
     }
 
     private void OnDrawGizmosSelected()

@@ -10,6 +10,8 @@ public class DronClass : EnemyHealthClass
     private bool swaying = false;
     private bool startedCounting = false;
     public AudioSource bombacae;
+    public AudioSource dronmueve;
+    private bool isMoving = false;
     //TP2 - Manuel Pereiro
     protected override void Awake()
     {
@@ -35,11 +37,14 @@ public class DronClass : EnemyHealthClass
         else LeavePlayer();
 
         DropBombs();
+        HandleDronSound();
     }
+    
 
     // El dron sigue al jugador manteniendo una distancia específica
     void FollowPlayer()
     {
+       
         if (swaying)
         {
             if (!startedCounting)
@@ -49,7 +54,8 @@ public class DronClass : EnemyHealthClass
         }        
         Vector3 targetPosition = player.position + Vector3.up * followDistance; 
         Vector3 direction = (targetPosition - transform.position).normalized;   
-        transform.position += direction * moveSpeed * Time.deltaTime;           
+        transform.position += direction * moveSpeed * Time.deltaTime;
+        isMoving = true;
     }
     void LeavePlayer()
     {
@@ -62,6 +68,7 @@ public class DronClass : EnemyHealthClass
         Vector3 targetPosition2 = player.position + Vector3.up * followDistance;
         Vector3 direction2 = (targetPosition2 - transform.position).normalized;
         transform.position -= direction2 * moveSpeed * Time.deltaTime;
+        isMoving = true;
     }
 
     IEnumerator leaving()
@@ -70,6 +77,7 @@ public class DronClass : EnemyHealthClass
         yield return new WaitForSeconds(5);
         startedCounting = false;
         escape = false;
+        isMoving = false;
     }
     IEnumerator returning()
     {
@@ -98,5 +106,16 @@ public class DronClass : EnemyHealthClass
 
         escape = true;
 
+    }
+    void HandleDronSound()
+    {
+        if (isMoving && !dronmueve.isPlaying)
+        {
+            dronmueve.Play(); // Inicia el sonido si está en movimiento y no está reproduciendo
+        }
+        else if (!isMoving && dronmueve.isPlaying)
+        {
+            dronmueve.Stop(); // Detiene el sonido si ya no se está moviendo
+        }
     }
 }

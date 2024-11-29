@@ -46,6 +46,8 @@ public class GunClass : WeaponSwitching
     [SerializeField] static public bool _infShot = false;
     [SerializeField] protected MoveChar moveChar;
     [SerializeField] private GameObject cartel100;
+    public AudioSource pickupSound; 
+    public float closeRange = 2f;   
 
     public static float extraDamage;
 
@@ -153,29 +155,40 @@ public class GunClass : WeaponSwitching
     }
     void InteractM4()
     {
-        //TPS Santiago Muscatiello (uso de diccionario para acumlar puntos y poder recoger arma)
-        if (moveChar.points < 100) 
+        // Verifica si el jugador tiene suficientes puntos
+        if (moveChar.points < 100)
         {
             Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
             return;
         }
+
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        // Realiza el Raycast con la distancia reducida
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
-            //Debug.Log(hit.transform.name);
-           // Debug.Log("activo");
-
-
             GunFloor target = hit.transform.GetComponent<GunFloor>();
             if (target != null)
             {
+                // Interacción con el arma
                 target.Interact();
-                moveChar.points -=100;
+                moveChar.points -= 100;
+
+                // Desactiva el cartel
                 cartel100.SetActive(false);
+
+                // Reproduce el sonido de recogida del M4
+                if (pickupSound != null)
+                {
+                    pickupSound.Play();
+                }
+
                 Debug.Log($"Has usado 100 puntos. Puntos restantes: {moveChar.points}");
             }
         }
-        
+        else
+        {
+            Debug.Log("No estás lo suficientemente cerca para recoger el M4.");
+        }
     }
     void InteractKey()
     {

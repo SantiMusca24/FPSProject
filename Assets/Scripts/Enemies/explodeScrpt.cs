@@ -6,7 +6,7 @@ using UnityEngine.Device;
 public class explodeScrpt : MonoBehaviour
 {
     [SerializeField] private bool _active;
-    [SerializeField] private ParticleSystem _particle;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +25,9 @@ public class explodeScrpt : MonoBehaviour
     IEnumerator dieee()
     {
         _active = true;
-        _particle.Play();
+        
         yield return new WaitForSeconds(0.5f);
+        
         _active = false;
         Destroy(gameObject);
     }
