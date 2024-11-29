@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cfcfb8e3c38ec39498cb982c0a464f49, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44220328, g: 0.4912181, b: 0.57111865, a: 1}
+  m_Sun: {fileID: 1676546951}
+  m_IndirectSpecularColor: {r: 0.45135468, g: 0.5009378, b: 0.5728164, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4217dc214004a8548b2deb66880d3d97, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c2b85929c06816944b389784579eb62e, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -261,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -271,6 +279,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 15856051}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &46453057
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.031
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.412
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 53.838
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_Name
+      value: Old_Artisan_-_Pendant_Wave_-_FBX (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
 --- !u!1001 &87109091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,6 +399,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -409,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -482,6 +555,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -557,6 +634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -631,6 +712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -704,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -823,7 +912,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &259110163
 MeshRenderer:
@@ -978,12 +1067,106 @@ Transform:
   m_GameObject: {fileID: 330281381}
   serializedVersion: 2
   m_LocalRotation: {x: 0.36982173, y: 0.4663884, z: -0.77174324, w: 0.22388884}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: -150.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 62.308, y: -51.162, z: -179.925}
+--- !u!1 &342498546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342498548}
+  - component: {fileID: 342498547}
+  m_Layer: 0
+  m_Name: Spot Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &342498547
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342498546}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.656245, b: 0.36470592, a: 1}
+  m_Intensity: 1.5
+  m_Range: 8.217021
+  m_SpotAngle: 56.962055
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &342498548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342498546}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7409721, y: -0.08197809, z: 0.049695175, w: 0.6646581}
+  m_LocalPosition: {x: 42.232, y: 2.2, z: 19.433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 83.282, y: -162.422, z: -151.719}
 --- !u!1 &368188269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1183,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &368188270
 MeshRenderer:
@@ -1131,6 +1314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1204,6 +1391,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1279,6 +1470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1352,6 +1547,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1427,6 +1626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1437,6 +1640,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 493375170}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &516224262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516224264}
+  - component: {fileID: 516224263}
+  m_Layer: 0
+  m_Name: Spot Light (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &516224263
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516224262}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.656245, b: 0.36470592, a: 1}
+  m_Intensity: 1.5
+  m_Range: 8.217021
+  m_SpotAngle: 84.06183
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &516224264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516224262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7409721, y: -0.08197809, z: 0.049695175, w: 0.6646581}
+  m_LocalPosition: {x: 11.098, y: 2.505, z: 53.854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 83.282, y: -162.422, z: -151.719}
 --- !u!1001 &564965936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1500,6 +1797,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1575,6 +1876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1648,6 +1953,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1723,6 +2032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1749,7 +2062,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &587064802
 MeshRenderer:
@@ -1880,6 +2193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1954,6 +2271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1964,6 +2285,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 670606869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &699124291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699124293}
+  - component: {fileID: 699124292}
+  m_Layer: 0
+  m_Name: Spot Light (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &699124292
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699124291}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.656245, b: 0.36470592, a: 1}
+  m_Intensity: 1.5
+  m_Range: 8.217021
+  m_SpotAngle: 84.06183
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &699124293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699124291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.73503083, y: -0.031091772, z: 0.10601388, w: 0.66897243}
+  m_LocalPosition: {x: 15.499, y: 2.785, z: 42.393}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 81.9, y: -234.175, z: -223.02}
 --- !u!1001 &715919149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2027,6 +2442,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b15ebf6424be87b47a16ce89d6094579, type: 3}
       propertyPath: m_Name
       value: Turret3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b15ebf6424be87b47a16ce89d6094579, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2097,6 +2516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2107,6 +2530,165 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 749087999}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &756812804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756812806}
+  - component: {fileID: 756812805}
+  m_Layer: 0
+  m_Name: reflectionw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &756812805
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756812804}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 10, y: 10, z: 10}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &756812806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756812804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.2, y: 0.8, z: 14.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &887392510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887392512}
+  - component: {fileID: 887392511}
+  m_Layer: 0
+  m_Name: Spot Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &887392511
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887392510}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.656245, b: 0.36470592, a: 1}
+  m_Intensity: 1.5
+  m_Range: 8.217021
+  m_SpotAngle: 84.06183
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &887392512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887392510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7409721, y: -0.08197809, z: 0.049695175, w: 0.6646581}
+  m_LocalPosition: {x: 13.98, y: 2.33, z: 50.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 83.282, y: -162.422, z: -151.719}
 --- !u!1001 &890668483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2170,6 +2752,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2241,10 +2827,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3774122866764644187, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -2472406077087221077, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 18b06342d9b27054184929aeae2229d4, type: 2}
+    - target: {fileID: -1456778072255336399, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -574066606435922336, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 307196056404140695, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2252,6 +2850,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
       propertyPath: m_Name
       value: this is a test
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5049103497659986345, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2261,10 +2863,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5f08248fc2a54144b851e660a830f57b, type: 2}
+    - target: {fileID: 5839054085109300956, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6468670292369212440, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6f401cf08b8b0434abe3c65754cd8f46, type: 2}
+    - target: {fileID: 7075414067561673358, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8962691622353546340, guid: 9518abf1b692afc459115049c71f5f1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2341,6 +2951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2414,6 +3028,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2489,6 +3107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2562,6 +3184,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2637,6 +3263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2710,6 +3340,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2785,6 +3419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2859,6 +3497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2885,7 +3527,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &1083998870
 MeshRenderer:
@@ -3016,6 +3658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3089,6 +3735,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3164,6 +3814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3237,6 +3891,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3312,6 +3970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3385,6 +4047,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3460,6 +4126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3533,6 +4203,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3698,6 +4372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b15ebf6424be87b47a16ce89d6094579, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3766,6 +4444,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3841,6 +4523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3915,6 +4601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3925,6 +4615,124 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 1504069415}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1537820696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537820698}
+  - component: {fileID: 1537820697}
+  m_Layer: 4
+  m_Name: SKY
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1537820697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537820696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 11c5769b733014f458c6c86a10e5613f, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &1537820698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537820696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9553165, y: 43.312637, z: 45.674736}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1548550415
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1237
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1237
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1237
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 56.076
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.779
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.196
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
+      propertyPath: m_Name
+      value: Old_Artisan_-_Pendant_Wave_-_FBX 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17a1e804c393a0a40ab84c01ab1c2536, type: 3}
 --- !u!1001 &1569048194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3989,6 +4797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4007,6 +4819,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8973059799054063851, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.01
@@ -4047,10 +4863,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8236770251457695475, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -7875377916533262755, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e00374ee26d73a64e8304b4d3f9760d5, type: 2}
+    - target: {fileID: -7875249635484847957, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -7539268334155438202, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4071,6 +4895,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 8c0e3eb1537fea5429e911c40d63de64, type: 2}
+    - target: {fileID: -6654599336889608420, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -6113185888999938080, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.59
@@ -4107,6 +4935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 134.298
       objectReference: {fileID: 0}
+    - target: {fileID: -5660087471702951077, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -4852590063694604102, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4115,10 +4947,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 8c0e3eb1537fea5429e911c40d63de64, type: 2}
+    - target: {fileID: -4728473108258581748, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -4588893370745701628, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6c341afd5972b7f45aa668d44bba9245, type: 2}
+    - target: {fileID: -3073457792536156655, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1433924222852991435, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -1400183965623564360, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.72
@@ -4154,6 +4998,10 @@ PrefabInstance:
     - target: {fileID: -1400183965623564360, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 134.298
+      objectReference: {fileID: 0}
+    - target: {fileID: -738364015919517404, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 835565545808240014, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4199,6 +5047,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AncientHouses
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308196208347425640, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1736347122336948612, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.9
@@ -4235,6 +5091,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 134.298
       objectReference: {fileID: 0}
+    - target: {fileID: 3943869673554877148, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5262673757966272423, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4251,6 +5111,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: a631b2ed6be7a3e4b8d609ed08ddce86, type: 2}
+    - target: {fileID: 5965526223187740738, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6616645723153803641, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4259,6 +5123,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 8c0e3eb1537fea5429e911c40d63de64, type: 2}
+    - target: {fileID: 7000757523564598759, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7217291469285802123, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4267,10 +5135,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 6c341afd5972b7f45aa668d44bba9245, type: 2}
+    - target: {fileID: 7920276056292784272, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8271126309650199513, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6c341afd5972b7f45aa668d44bba9245, type: 2}
+    - target: {fileID: 8660341641439612547, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -3174729973099253932, guid: 621d8fbdb7df4a74ea12ee2330996049, type: 3}
@@ -4343,6 +5219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4353,6 +5233,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 1589695106}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1592596595
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.058
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.186
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.36
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_Name
+      value: Old_Artisan_-_Pendant_Wave_-_FBX (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
 --- !u!1 &1615413821
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +5385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4522,6 +5463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4532,6 +5477,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 1620658568}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1676546950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676546952}
+  - component: {fileID: 1676546951}
+  m_Layer: 0
+  m_Name: Directional Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1676546951
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676546950}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 0.9716981, g: 0.5829266, b: 0.18792273, a: 1}
+  m_Intensity: 0.8
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 4.7343004e+36, z: -5.0777333e+35, w: 2.5194191e-27}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1676546952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676546950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.1472209, y: -0.24111871, z: 0.6085847, w: 0.7414934}
+  m_LocalPosition: {x: 54.172314, y: 76.1, z: -63.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 30.784, y: -11.984, z: 75.445}
 --- !u!1001 &1738203579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4595,6 +5634,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4670,6 +5713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4743,6 +5790,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4818,6 +5869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4891,6 +5946,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4966,6 +6025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5039,6 +6102,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5114,6 +6181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5188,6 +6259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5198,6 +6273,118 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 1883821787}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889001813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889001815}
+  - component: {fileID: 1889001814}
+  - component: {fileID: 1889001816}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1889001814
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889001813}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.76047254, b: 0.36470592, a: 1}
+  m_Intensity: 3
+  m_Range: 8.217021
+  m_SpotAngle: 102.08262
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1889001815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889001813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.635371, y: -0.073794484, z: 0.061191376, w: 0.76623344}
+  m_LocalPosition: {x: 56.027, y: 2.804, z: 10.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 79.332, y: -11.002, z: 0}
+--- !u!114 &1889001816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889001813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad399f3238163b47822c292475c4fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotlight: {fileID: 1889001814}
+  cortoDuracion: 0.2
+  largoDuracion: 0.5
+  intensidadMaxima: 4
+  intensidadMinima: 0
 --- !u!1001 &1905137917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5262,6 +6449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5272,6 +6463,159 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 1905137917}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1906665055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906665059}
+  - component: {fileID: 1906665058}
+  - component: {fileID: 1906665057}
+  - component: {fileID: 1906665056}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1906665056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906665055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1906665059}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!81 &1906665057
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906665055}
+  m_Enabled: 1
+--- !u!20 &1906665058
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906665055}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1906665059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906665055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.178434, y: 70.9, z: 27.616835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1952393271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5335,6 +6679,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5410,6 +6758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5420,6 +6772,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
   m_PrefabInstance: {fileID: 1989796085}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2037070170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.214
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.931
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 42.254
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.045398455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70564795
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
+      propertyPath: m_Name
+      value: Old_Artisan_-_Pendant_Wave_-_FBX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28c365f313a6ba04b84d5858de4abcbf, type: 3}
 --- !u!1001 &2053483833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5483,6 +6892,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
       propertyPath: m_Name
       value: Weighted Wood Platform (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5558,6 +6971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5632,6 +7049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weighted Wood Platform (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c818ca758059a845a7dec0bbb50a109, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5702,6 +7123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6473759f1b6869c4e8a88fbffdb0ee43, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5724,3 +7149,16 @@ SceneRoots:
   - {fileID: 1434760401}
   - {fileID: 715919149}
   - {fileID: 1417373663}
+  - {fileID: 1537820698}
+  - {fileID: 1906665059}
+  - {fileID: 1676546952}
+  - {fileID: 756812806}
+  - {fileID: 1889001815}
+  - {fileID: 342498548}
+  - {fileID: 887392512}
+  - {fileID: 699124293}
+  - {fileID: 516224264}
+  - {fileID: 1548550415}
+  - {fileID: 2037070170}
+  - {fileID: 1592596595}
+  - {fileID: 46453057}
