@@ -11,6 +11,8 @@ public class MoveChar : MonoBehaviour
     //TP2 LorenzoMarmol(SETTERS AND GETTERS)
     [SerializeField]
     private float _speed = 5;
+    public float walkspeed;
+    public float sprintSpeed;
 
     [SerializeField]
     public float Speed
@@ -49,6 +51,7 @@ public class MoveChar : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
     public KeyCode jumpkey = KeyCode.Space;
+    public KeyCode sprinteKey = KeyCode.LeftShift;
     public KeyCode powerJumpKey = KeyCode.C; // Tecla para activar el doble salto
     private bool powerJumpActive = false;
     public string sceneName;
@@ -65,8 +68,15 @@ public class MoveChar : MonoBehaviour
     [SerializeField] private EnemyScoreManager lootData;
     [SerializeField] private TMP_Text pointsText;
 
+    public MovementState state;
    
-    
+    public enum MovementState
+    {
+        walking,
+        sprinting,
+        air
+    }
+
     private void Awake()
     {
         movementDelegate += Move;
@@ -74,7 +84,7 @@ public class MoveChar : MonoBehaviour
     }
     void Start()
     {
-      
+        _rigidbod.interpolation = RigidbodyInterpolation.Interpolate;
         Speed = 5;
         readyToJump = true;
         pointsText.text = "Points: 0";
@@ -83,6 +93,7 @@ public class MoveChar : MonoBehaviour
 
     void Update()
     {
+        StateHandler();
         pointsText.text = "Points:" + points;
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -138,6 +149,24 @@ public class MoveChar : MonoBehaviour
         }
         
 
+    }
+    private void StateHandler()
+    {
+        if (grounded && Input.GetKey(sprinteKey))
+        {
+            state = MovementState.sprinting;
+            _speed = sprintSpeed;
+
+        }
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            _speed = walkspeed;
+        }
+        else
+        {
+            state = MovementState.air;
+        }
     }
 
     private void FixedUpdate()

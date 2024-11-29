@@ -17,7 +17,7 @@ public class MineScript : MonoBehaviour
     [SerializeField] private float _randomX;
     [SerializeField] private float _randomZ;
     [SerializeField] private Material _material;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +57,9 @@ public class MineScript : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             _material.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(0.5f);
+         
             Instantiate(_explosionn, transform.position, Quaternion.identity);
+        
             _boooom.Play();
 
             if (_distancePlayer < _viewRadius)

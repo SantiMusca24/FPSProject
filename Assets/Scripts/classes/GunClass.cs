@@ -19,6 +19,9 @@ public class GunClass : WeaponSwitching
     public Camera fpsCam;
     public ParticleSystem muzzleFlash; public ParticleSystem muzzleFlash2;
     public GameObject impactEffect;
+    public GameObject impactEffect2;
+    public GameObject impactEffect3;
+    public GameObject impactEffect4;
 
     private float nextTimeToFire = 0f;
 
@@ -204,40 +207,48 @@ public class GunClass : WeaponSwitching
         {
             Debug.Log(hit.transform.name);
 
-
+            // Verificar si golpea un enemigo
             EnemyHealthClass target = hit.transform.GetComponent<EnemyHealthClass>();
             if (target != null && target.TakeDamage(damage))
             {
-                //TP2 - Santiago Muscatiello (diccionario)
                 EnemyHealthClass enemy = target as EnemyHealthClass;
                 if (enemy != null)
                 {
                     moveChar.GetLoot(EnemyScoreManager.Instance.GetPoints(enemy.enemyType));
                 }
-                  
             }
-
+            // Verificar si golpea una esfera u objeto especial
             OrbClass target2 = hit.transform.GetComponent<OrbClass>();
             if (target2 != null)
             {
-                //TPS Santiago Muscatiello (diccionario)
-                OrbClass enemy2 = target2 as OrbClass;
-                if (enemy2 != null)
-                {
-                    enemy2.Interact(); 
-                }
-
+                target2.Interact();
             }
 
-            /*EnemyHealth targetDron = hit.transform.GetComponent<EnemyHealth>();
-            if (targetDron != null)
+            // Si el impacto no es un enemigo o interactivo, generar el efecto de impacto.
+            if (hit.collider.name.ToLower().Contains("suelo"))
             {
-                targetDron.TakeDamage(damage);
-            }*/
-
-            GameObject impactGO =Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGO, 2f);
+                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
+            }
+            else if (hit.collider.name.ToLower().Contains("dron"))
+            {
+                // Efecto exclusivo para el dron
+                GameObject impactGO = Instantiate(impactEffect3, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
+            }
+            else if (hit.collider.name.ToLower().Contains("soldado"))
+            {
+                GameObject impactGO = Instantiate(impactEffect4, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
+            }
+            else
+            {
+                GameObject impactGO = Instantiate(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
+            }
         }
+
+       
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             MineScript target = hit.transform.GetComponent<MineScript>();
@@ -245,8 +256,8 @@ public class GunClass : WeaponSwitching
             {
                 target.explodeee();
             }
-            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGO, 2f);
+           
+
         }
     }
     IEnumerator infShotThing()

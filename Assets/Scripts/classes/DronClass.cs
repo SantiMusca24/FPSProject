@@ -9,7 +9,7 @@ public class DronClass : EnemyHealthClass
     private bool escape = false;
     private bool swaying = false;
     private bool startedCounting = false;
-
+    public AudioSource bombacae;
     //TP2 - Manuel Pereiro
     protected override void Awake()
     {
@@ -83,9 +83,10 @@ public class DronClass : EnemyHealthClass
     void DropBombs()
     {
         bombTimer -= Time.deltaTime;
-
+        
         if (bombTimer <= 0f)
         {
+            bombacae.Play();
             // Lanza una bomba
             Instantiate(bombPrefab, bombSpawnPoint.position, Quaternion.identity);
             bombTimer = bombDropInterval; // Reinicia el temporizador
