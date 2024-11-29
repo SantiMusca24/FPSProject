@@ -37,7 +37,7 @@ public class screens : MonoBehaviour
     }
     public void Retry()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Nivel 1");
     }
 
     public void ExitGame()

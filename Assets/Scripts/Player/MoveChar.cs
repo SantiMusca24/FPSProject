@@ -95,9 +95,9 @@ public class MoveChar : MonoBehaviour
     {
         StateHandler();
         pointsText.text = "Points:" + points;
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Nivel 1");
         }
 
         right = Input.GetAxisRaw("Horizontal");

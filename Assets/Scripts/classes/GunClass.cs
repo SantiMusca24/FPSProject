@@ -130,7 +130,7 @@ public class GunClass : WeaponSwitching
         }
         else if (Input.GetMouseButtonDown(0) && !PistolBullets._shootCooldown) _emptyNoise.Play();
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             InteractBulletBox();
             InteractM4();

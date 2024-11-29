@@ -9,33 +9,33 @@ using UnityEngine.SceneManagement;
 public class Salud : MonoBehaviour
 {
     //Lorenzo Marmol
-    static public float health = 100;
-    public float maxHealth = 100;
+    public static float health = 100f;
+    public float maxHealth = 100f;
 
     [Header("Interfaz")]
     public Image healthBar;
     public Text healthText;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        // Actualizar la barra de salud
         CheckHealth();
 
+        // Cambiar a la escena de muerte si la salud llega a 0
         if (health <= 0)
         {
-
             SceneManager.LoadScene("Death_Scene");
         }
-
     }
-    void CheckHealth()
+
+    private void CheckHealth()
     {
         healthBar.fillAmount = health / maxHealth;
-        healthText.text = health.ToString("f0");
+        healthText.text = health.ToString("F0");
     }
 }

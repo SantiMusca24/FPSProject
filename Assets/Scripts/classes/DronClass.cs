@@ -12,6 +12,8 @@ public class DronClass : EnemyHealthClass
     public AudioSource bombacae;
     public AudioSource dronmueve;
     private bool isMoving = false;
+    public float detectionRangeMin = 5f;  // Distancia mínima para que el dron comience a seguir
+    public float detectionRangeMax = 20f;
     //TP2 - Manuel Pereiro
     protected override void Awake()
     {
@@ -33,27 +35,33 @@ public class DronClass : EnemyHealthClass
 
     void Update()
     {
-        if (!escape) FollowPlayer();
-        else LeavePlayer();
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        // Solo sigue al jugador si está dentro del rango de detección
+        if (distanceToPlayer > detectionRangeMin && distanceToPlayer < detectionRangeMax && !escape)
+        {
+            FollowPlayer();
+        }
+        
 
         DropBombs();
         HandleDronSound();
     }
-    
+
 
     // El dron sigue al jugador manteniendo una distancia específica
     void FollowPlayer()
     {
-       
         if (swaying)
         {
             if (!startedCounting)
             {
                 StartCoroutine(returning());
             }
-        }        
-        Vector3 targetPosition = player.position + Vector3.up * followDistance; 
-        Vector3 direction = (targetPosition - transform.position).normalized;   
+        }
+
+        Vector3 targetPosition = player.position + Vector3.up * followDistance;
+        Vector3 direction = (targetPosition - transform.position).normalized;
         transform.position += direction * moveSpeed * Time.deltaTime;
         isMoving = true;
     }
@@ -90,8 +98,10 @@ public class DronClass : EnemyHealthClass
     // Lanza bombas hacia el jugador
     void DropBombs()
     {
+        if (!isMoving) return; // No lanza bombas si no está en movimiento
+
         bombTimer -= Time.deltaTime;
-        
+
         if (bombTimer <= 0f)
         {
             bombacae.Play();
