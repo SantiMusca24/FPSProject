@@ -4,34 +4,64 @@ using UnityEngine;
 
 public class Enemidaño : MonoBehaviour
 {
-    public Transform player;        // Referencia al jugador
-    public float moveSpeed = 3f;    // Velocidad de movimiento del enemigo
-    public float damage = 10f;      // Daño que inflige al jugador
+    public Transform player;
+    public float moveSpeed = 3f;
+    public float damage = 10f;
+    public float damageCooldown = 1f; 
+
+    private float lastDamageTime = 0f; 
 
     private void Update()
     {
-        // Moverse hacia el jugador
+        
         Vector3 direction = (player.position - transform.position).normalized;
 
-        // Orientar al enemigo hacia el jugador (corregir rotación solo en el plano XZ)
-        Vector3 lookDirection = new Vector3(direction.x, 0, direction.z); // Ignorar el eje Y para evitar inclinaciones
+       
+        Vector3 lookDirection = new Vector3(direction.x, 0, direction.z);
         if (lookDirection != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(lookDirection); // Ajustar la rotación hacia el jugador
+            transform.rotation = Quaternion.LookRotation(lookDirection);
         }
 
-        // Moverse hacia el jugador
+       
         transform.position += direction * moveSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Verificar si el enemigo colisionó con el jugador
+       
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Reducir la salud del jugador
-            Salud.health -= damage;
-            Debug.Log("Jugador golpeado, salud restante: " + Salud.health);
+            ApplyDamage(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ApplyDamage(collision.gameObject);
+        }
+    }
+
+    private void ApplyDamage(GameObject player)
+    {
+        
+        if (Time.time >= lastDamageTime + damageCooldown)
+        {
+            
+            Salud playerHealth = player.GetComponent<Salud>();
+
+            if (playerHealth != null)
+            {
+                
+                playerHealth.ReceiveDamage(damage);
+                Debug.Log("Jugador golpeado, infligiendo daño: " + damage);
+
+                
+                lastDamageTime = Time.time;
+            }
         }
     }
 }

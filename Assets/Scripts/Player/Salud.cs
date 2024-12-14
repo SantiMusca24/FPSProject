@@ -16,24 +16,42 @@ public class Salud : MonoBehaviour
     public Image healthBar;
     public Text healthText;
 
+    
+    public delegate void DamageEventHandler(float damage);
+    public static event DamageEventHandler OnDamageReceived;
+
     private void Start()
     {
         health = maxHealth;
+        UpdateHealthUI();
     }
 
     private void Update()
     {
-        // Actualizar la barra de salud
-        CheckHealth();
-
-        // Cambiar a la escena de muerte si la salud llega a 0
+        
         if (health <= 0)
         {
             SceneManager.LoadScene("Death_Scene");
         }
     }
 
-    private void CheckHealth()
+    
+    public void ReceiveDamage(float damage)
+    {
+        if (damage <= 0) return;
+
+        health -= damage;
+        health = Mathf.Clamp(health, 0, maxHealth); 
+
+        
+        UpdateHealthUI();
+
+        
+        OnDamageReceived?.Invoke(damage);
+    }
+
+    
+    private void UpdateHealthUI()
     {
         healthBar.fillAmount = health / maxHealth;
         healthText.text = health.ToString("F0");
