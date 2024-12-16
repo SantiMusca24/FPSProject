@@ -5695,6 +5695,7 @@ MonoBehaviour:
   player: {fileID: 1059113970}
   moveSpeed: 3
   damage: 10
+  damageCooldown: 1
 --- !u!54 &504484397
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6062,8 +6063,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.2934213, y: 7.9311566, z: 3.0198193}
-  m_Center: {x: -2.1386988, y: -1.7153857, z: 0.1299696}
+  m_Size: {x: 2.907277, y: 1.5658903, z: 3.0198193}
+  m_Center: {x: 0.054373264, y: 1.4672475, z: 0.1299696}
 --- !u!23 &560872613
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7525,6 +7526,7 @@ MonoBehaviour:
   player: {fileID: 1059113970}
   moveSpeed: 3
   damage: 10
+  damageCooldown: 1
 --- !u!54 &685969821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13727,7 +13729,6 @@ GameObject:
   - component: {fileID: 813143757}
   - component: {fileID: 813143756}
   - component: {fileID: 813143755}
-  - component: {fileID: 813143760}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -13838,18 +13839,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &813143760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813143754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87462657c686fca40913cd08bf30b27b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &821845734
 GameObject:
   m_ObjectHideFlags: 0
@@ -27965,6 +27954,7 @@ MonoBehaviour:
   player: {fileID: 1059113970}
   moveSpeed: 3
   damage: 10
+  damageCooldown: 1
 --- !u!54 &1730874353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31224,6 +31214,7 @@ MonoBehaviour:
   player: {fileID: 1059113970}
   moveSpeed: 3
   damage: 10
+  damageCooldown: 1
 --- !u!54 &2039447357
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32804,6 +32795,10 @@ PrefabInstance:
     - target: {fileID: 1737920068456314515, guid: 814efac82e388c649b5fb811c3cd8870, type: 3}
       propertyPath: jumpCooldown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384967664958508778, guid: 814efac82e388c649b5fb811c3cd8870, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7314246879029252102, guid: 814efac82e388c649b5fb811c3cd8870, type: 3}
       propertyPath: healthBar

@@ -11,64 +11,57 @@ public class Bomb : MonoBehaviour
     public ParticleSystem explosion;
     public MeshRenderer mesh;
     public AudioSource bomba;
-    void OnCollisionEnter(Collision collision)
-    {
-        explosionPosition = transform.position;
-        Explode();
-    }
+
 
     void Explode()
     {
         explosion.Play();
         bomba.Play();
-        
+
         GetComponent<Collider>().enabled = false;
-        
+
         Collider[] objectsInRange = Physics.OverlapSphere(explosionPosition, damageRadius);
 
         foreach (Collider obj in objectsInRange)
         {
+            Debug.Log("Objeto en rango: " + obj.name);
+
             
-            float distance = Vector3.Distance(explosionPosition, obj.transform.position);
-            Debug.Log("Distancia entre la explosión y el objeto: " + distance);
-            if (distance <= damageRadius) 
+            Salud salud = obj.GetComponentInParent<Salud>();
+            if (salud != null)
             {
-               
-                if (Salud.health > 0)
-                {
-                   
-                    Salud.health -= bombDamage;
+                Debug.Log($"Aplicando daño de {bombDamage} a {obj.name}");
+                salud.ReceiveDamage(bombDamage);
+            }
+            else
+            {
+                Debug.Log($"El objeto {obj.name} no tiene el componente Salud");
+            }
 
-                    if (Salud.health < 0)
-                    {
-                        Salud.health = 0;
-                    }
-
-                    Debug.Log("Daño aplicado: " + bombDamage + ". Salud restante: " + Salud.health);
-                }
-
-               
-                Rigidbody rb = obj.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.AddExplosionForce(explosionForce, transform.position, damageRadius);
-                }
+            
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, transform.position, damageRadius);
             }
         }
 
         float particleDuration = explosion.main.duration;
 
-        
-        // Destruir al padre con retraso, si existe
         if (transform.parent != null)
         {
             Destroy(transform.parent.gameObject, particleDuration);
             mesh.enabled = false;
         }
 
-        // Destruir el propio objeto con retraso
         Destroy(gameObject, particleDuration);
-
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+       
+        Debug.Log($"Bomba colisionó con {collision.gameObject.name}");
+        explosionPosition = transform.position;
+        Explode();
     }
 
     private void OnDrawGizmosSelected()

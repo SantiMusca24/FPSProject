@@ -92,6 +92,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6152568977836836322}
     - target: {fileID: 4258418845664201078, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
+      propertyPath: bombDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258418845664201078, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
       propertyPath: damageRadius
       value: 2
       objectReference: {fileID: 0}
