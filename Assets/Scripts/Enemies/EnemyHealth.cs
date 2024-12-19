@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float health = 50f;
 
     private WinCondition enemyManager;
+    
 
     private void Start()
     {
@@ -16,15 +17,18 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+       
 
         if (health<=0f)
         {
             Die();
+
         }
     }
 
     void Die()
     {
+        
         if (enemyManager != null)
         {
             enemyManager.EnemyDied();

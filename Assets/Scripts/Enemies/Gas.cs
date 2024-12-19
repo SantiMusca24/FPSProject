@@ -19,6 +19,7 @@ public class Gas : MonoBehaviour
         if (maskOn == false && !invencible && Salud.health > 0)
         {
             Salud.health -= infectionDamage;
+           
             infectionIcon.SetActive(true);
             
             print("te dio");
@@ -57,6 +58,9 @@ public class Gas : MonoBehaviour
         if (maskOn == true)
         {
             infectionIcon.SetActive(false);
+            VenenoFiltro.SetActive(false);
         }
+        
     }
+
 }

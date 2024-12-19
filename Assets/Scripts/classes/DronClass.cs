@@ -42,9 +42,13 @@ public class DronClass : EnemyHealthClass
         {
             FollowPlayer();
         }
-        
 
-        DropBombs();
+        // Lanza bombas solo si está dentro del rango de detección
+        if (distanceToPlayer > detectionRangeMin && distanceToPlayer < detectionRangeMax)
+        {
+            DropBombs();
+        }
+
         HandleDronSound();
     }
 
