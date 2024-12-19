@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3730364193450224622}
   - component: {fileID: 2409170382032807772}
   m_Layer: 0
-  m_Name: bazooka explode
+  m_Name: bazookaaExplode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

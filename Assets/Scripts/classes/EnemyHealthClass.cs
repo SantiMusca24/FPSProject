@@ -12,6 +12,7 @@ public abstract class EnemyHealthClass : MonoBehaviour
     public GameObject bombPrefab;
     public Transform bombSpawnPoint;
     protected float bombDropInterval;
+   // [SerializeField] GameObject bazookaaExplode;
 
     protected float bombTimer;
 
@@ -32,9 +33,13 @@ protected virtual void Awake()
         
     }
 
-    private void OnTriggerEnter(Collider bazookaExplode)
+    private void OnTriggerEnter(Collider other)
     {
-        TakeDamage(1000);
+        if (other.gameObject.name == "bazookaaExplode(Clone)")
+        {
+            TakeDamage(1000);
+        }
+            
     }
 
     public bool TakeDamage(float amount)

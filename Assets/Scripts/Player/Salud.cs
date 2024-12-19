@@ -17,8 +17,8 @@ public class Salud : MonoBehaviour
     [Header("Interfaz")]
     public Image healthBar;
     public Text healthText;
+   // [SerializeField] GameObject bazookaaExplode;
 
-    
     public delegate void DamageEventHandler(float damage);
     public static event DamageEventHandler OnDamageReceived;
 
@@ -38,9 +38,13 @@ public class Salud : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider bazookaExplode)
+    public void OnTriggerEnter(Collider other)
     {
-        ReceiveDamage(45);
+        if (other.gameObject.name == "bazookaaExplode(Clone)")
+        {
+            ReceiveDamage(45);
+        }
+            
     }
 
     public void ReceiveDamage(float damage)
