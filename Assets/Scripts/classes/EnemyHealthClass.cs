@@ -31,6 +31,12 @@ protected virtual void Awake()
         enemyManager = FindObjectOfType<WinCondition>();
         
     }
+
+    private void OnTriggerEnter(Collider bazookaExplode)
+    {
+        TakeDamage(1000);
+    }
+
     public bool TakeDamage(float amount)
     {
         if (health <= halfHealth && !didHalfHealth)

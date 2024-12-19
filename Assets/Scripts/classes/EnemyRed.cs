@@ -6,6 +6,9 @@ using UnityEngine;
 public class EnemyRed : EnemyHealthClass
 {
     public GameObject redAudio;
+
+    
+
     protected override void Awake()
     {
         base.Awake();

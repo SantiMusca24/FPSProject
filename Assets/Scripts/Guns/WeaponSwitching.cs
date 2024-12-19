@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static WeaponSwitching;
 
 public class WeaponSwitching : MonoBehaviour
 {
 
-    [SerializeField] private GameObject _akUI, _pistolUI;
+    [SerializeField] private GameObject _akUI, _pistolUI, _bazookaUI, _bazookaObj;
     [SerializeField] private Animator _akReload, _pistolShoot;
+    
     public struct Wpon
     {
         public string name; // Nombre del arma
@@ -17,14 +19,16 @@ public class WeaponSwitching : MonoBehaviour
 
     static public Wpon handgun;
     static public Wpon machinegun;
+    static public Wpon bazooka;
 
     static public int selectedWeapon = 1;
     static public bool isM4Available = false;
+    static public bool isBazookaAvailable = false;
 
     //TP2 - Manuel Pereiro (agregado structs)
     public virtual void Start()
     {
-
+        _bazookaObj.SetActive(false);
         handgun = new Wpon();
         handgun.name = "Pistola";
         handgun.dmg = 17;
@@ -36,6 +40,13 @@ public class WeaponSwitching : MonoBehaviour
         machinegun.dmg = 20;
         machinegun.amm = 16;
         machinegun.rel = 5;
+
+        bazooka = new Wpon();
+        bazooka.name = "Bazooka";
+        bazooka.dmg = 900;
+        bazooka.amm = 1;
+        bazooka.rel = 0;
+
 
         selectedWeapon = 1;
 
@@ -53,8 +64,21 @@ public class WeaponSwitching : MonoBehaviour
 
         int previousSelectedWeapon = selectedWeapon;
 
-        
-        if (isM4Available)
+        if (isBazookaAvailable)
+        {
+            selectedWeapon = 2;
+            BulletCounter._shootCooldown = false;
+            PistolBullets._shootCooldown = false;
+            _bazookaObj.SetActive(true);
+            if (BazookaBullet._currentBullets <= 0) 
+            {
+                isBazookaAvailable = false;
+                _bazookaObj.SetActive(false);
+                selectedWeapon = 1;
+            }
+        }
+
+        if (isM4Available && !isBazookaAvailable)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
@@ -102,6 +126,8 @@ public class WeaponSwitching : MonoBehaviour
         }
 
         
+
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && isM4Available)
         {
             _pistolShoot.Play("Idle", 0, 0f);
@@ -119,11 +145,19 @@ public class WeaponSwitching : MonoBehaviour
         if (selectedWeapon == 1)
         {
             _akUI.SetActive(false);
+            _bazookaUI.SetActive(false);
             _pistolUI.SetActive(true); 
         }
         else if (selectedWeapon == 0 && isM4Available)
         {
             _akUI.SetActive(true); 
+            _bazookaUI.SetActive(false);
+            _pistolUI.SetActive(false);
+        }
+        else if (selectedWeapon == 2)
+        {
+            _akUI.SetActive(false);
+            _bazookaUI.SetActive(true);
             _pistolUI.SetActive(false);
         }
     }

@@ -22,10 +22,11 @@ public class GunClass : WeaponSwitching
     public GameObject impactEffect2;
     public GameObject impactEffect3;
     public GameObject impactEffect4;
+    public GameObject impactEffectBazooka;
 
     private float nextTimeToFire = 0f;
 
-    [SerializeField] private AudioSource _shootNoise, _emptyNoise;
+    [SerializeField] private AudioSource _shootNoise, _emptyNoise, _bazookaNoise, _bazookaExplode;
     [SerializeField] private Animator _animator;
     private bool isDoubleShotActive = false;
     private float doubleShotDuration = 5f; // Duración del power-up de doble disparo
@@ -75,11 +76,19 @@ public class GunClass : WeaponSwitching
             _pistolMunnitionObj.SetActive(true);
             _akMunnitionObj.SetActive(false);
         }
+        else if (selectedWeapon == 2)
+        {
+            _currentGunText.text = "" + bazooka.name;
+            damage = bazooka.dmg + extraDamage;
+            _pistolMunnitionObj.SetActive(false);
+            _akMunnitionObj.SetActive(false);
+        }
 
         if (_infShot)
         {
             BulletCounter._currentBullets = machinegun.amm;
             PistolBullets._currentBullets = handgun.amm;
+            BazookaBullet._currentBullets = bazooka.amm;
         }
 
         if (Input.GetKeyDown(KeyCode.L) && _canActivateInfShot)
@@ -128,16 +137,40 @@ public class GunClass : WeaponSwitching
                 Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
             }
         }
+        else if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BazookaBullet._canShoot && selectedWeapon == 2)
+        {
+            nextTimeToFire = Time.time + 1f / fireRate;
+            Shoot();
+            if (isDoubleShotActive)
+            {
+                Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
+            }
+        }
         else if (Input.GetMouseButtonDown(0) && !PistolBullets._shootCooldown) _emptyNoise.Play();
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             InteractBulletBox();
             InteractM4();
+            InteractBazooka();
             InteractKey();
         }
     }
+    void InteractBazooka()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            //  Debug.Log(hit.transform.name);
 
+
+            BazookaFloor target = hit.transform.GetComponent<BazookaFloor>();
+            if (target != null)
+            {
+                target.Interact();
+            }
+        }
+    }
     void InteractBulletBox()
     {
         RaycastHit hit;
@@ -212,9 +245,15 @@ public class GunClass : WeaponSwitching
     {
         muzzleFlash.Play();
         muzzleFlash2.Play();
-        _shootNoise.Play();
+        if (selectedWeapon != 2)
+        {
+            _shootNoise.Play();
+        }
+        else _bazookaNoise.Play();
+
         if (selectedWeapon == 0) BulletCounter._currentBullets--;
         else if (selectedWeapon == 1) PistolBullets._currentBullets--;
+        else if (selectedWeapon == 2) BazookaBullet._currentBullets--;
         int layerMask = ~LayerMask.GetMask("IgnoreRaycast");
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range,layerMask))
@@ -259,6 +298,13 @@ public class GunClass : WeaponSwitching
             {
                 GameObject impactGO = Instantiate(impactEffect2, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactGO, 2f);
+            }
+
+            if (selectedWeapon == 2)
+            {
+                _bazookaExplode.Play();
+                GameObject impactGO = Instantiate(impactEffectBazooka, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 4f);
             }
         }
 

@@ -12,6 +12,8 @@ public class Salud : MonoBehaviour
     public static float health = 100f;
     public float maxHealth = 100f;
 
+    static public bool Srank = false;
+
     [Header("Interfaz")]
     public Image healthBar;
     public Text healthText;
@@ -22,6 +24,7 @@ public class Salud : MonoBehaviour
 
     private void Start()
     {
+        Srank = true;
         health = maxHealth;
         UpdateHealthUI();
     }
@@ -35,11 +38,15 @@ public class Salud : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter(Collider bazookaExplode)
+    {
+        ReceiveDamage(45);
+    }
+
     public void ReceiveDamage(float damage)
     {
         if (damage <= 0) return;
-
+        Srank = false;
         health -= damage;
         health = Mathf.Clamp(health, 0, maxHealth); 
 
