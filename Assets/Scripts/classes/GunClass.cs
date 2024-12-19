@@ -215,8 +215,9 @@ public class GunClass : WeaponSwitching
         _shootNoise.Play();
         if (selectedWeapon == 0) BulletCounter._currentBullets--;
         else if (selectedWeapon == 1) PistolBullets._currentBullets--;
+        int layerMask = ~LayerMask.GetMask("IgnoreRaycast");
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range,layerMask))
         {
             Debug.Log(hit.transform.name);
 
