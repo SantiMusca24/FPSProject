@@ -54,7 +54,8 @@ public class WeaponSwitching : MonoBehaviour
         _pistolShoot.keepAnimatorStateOnDisable = true;
 
         isM4Available = false;
-
+        isBazookaAvailable = false;
+        _bazookaObj.SetActive(false);
         SelectWeapon();
     }
 
