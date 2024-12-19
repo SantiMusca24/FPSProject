@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemidaño : MonoBehaviour
+public class Enemidano : MonoBehaviour
 {
     public Transform player;
+    [SerializeField]
+   
     public float moveSpeed = 3f;
     public float damage = 10f;
     public float damageCooldown = 1f; 
 
-    private float lastDamageTime = 0f; 
+    private float lastDamageTime = 0f;
 
     private void Update()
     {
-        
-        Vector3 direction = (player.position - transform.position).normalized;
+         Vector3 direction = (player.position - transform.position).normalized;
 
        
         Vector3 lookDirection = new Vector3(direction.x, 0, direction.z);
@@ -25,7 +26,9 @@ public class Enemidaño : MonoBehaviour
 
        
         transform.position += direction * moveSpeed * Time.deltaTime;
-    }
+        }
+        
+       
 
     private void OnCollisionEnter(Collision collision)
     {

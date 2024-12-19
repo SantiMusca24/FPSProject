@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class MoveChar : MonoBehaviour
 {
     //TP2 LorenzoMarmol(SETTERS AND GETTERS)
     [SerializeField]
+    public int smoothCrouch;
     private float _speed = 5;
     public float walkspeed;
     public float sprintSpeed;
@@ -31,13 +33,13 @@ public class MoveChar : MonoBehaviour
         }
     }
 
-
+    public bool crouch = false;
     public Rigidbody _rigidbod;
     public GameObject _camera;
     private Animator _anim;
     private Vector3 _dir1 = new();
     private Vector3 _dir2 = new();
-
+   
     private float right, forward;
 
     [SerializeField] private Transform _orientation;
@@ -93,6 +95,20 @@ public class MoveChar : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl) && state != MovementState.sprinting)
+        {
+          crouch = true;
+          walkspeed = 3;
+        }
+        else
+        {
+            crouch = false;
+            walkspeed = 5;
+        }
+        float targetLocalScaleY = crouch ? 0.65f : 1f;
+        float newScaleY = Mathf.Lerp(transform.localScale.y, targetLocalScaleY, Time.deltaTime * smoothCrouch);
+        transform.localScale = new Vector3 (1, newScaleY, 1);
+
         StateHandler();
         pointsText.text = "Points:" + points;
         if (Input.GetKeyDown(KeyCode.F2))
@@ -152,7 +168,8 @@ public class MoveChar : MonoBehaviour
     }
     private void StateHandler()
     {
-        if (grounded && Input.GetKey(sprinteKey))
+     
+          if (grounded && Input.GetKey(sprinteKey) && crouch == false)
         {
             state = MovementState.sprinting;
             _speed = sprintSpeed;
@@ -168,6 +185,8 @@ public class MoveChar : MonoBehaviour
             state = MovementState.air;
         }
     }
+        
+       
 
     private void FixedUpdate()
     {
