@@ -51,6 +51,12 @@ public class GunClass : WeaponSwitching
     [SerializeField] static public bool _instakill =  false;
     [SerializeField] protected MoveChar moveChar;
     [SerializeField] private GameObject cartel100;
+    [SerializeField] private GameObject hud1;
+    [SerializeField] private GameObject hud2;
+    [SerializeField] private GameObject hud3;
+    
+
+
     public AudioSource pickupSound; 
     public float closeRange = 2f;   
 
@@ -63,7 +69,11 @@ public class GunClass : WeaponSwitching
         _pistolMunnition = handgun.rel;
         _akMunnition = machinegun.rel;
         _infShot = false;
+        hud1.SetActive(false);
+        hud2.SetActive(false);
+        hud3.SetActive(false);
         
+
     }
     public override void Update()
     {
@@ -422,17 +432,20 @@ public class GunClass : WeaponSwitching
     }
     IEnumerator infShotThing()
     {
+        hud2.SetActive(true);
         yield return new WaitForSeconds(5);
         _infShot = false;
+        hud2.SetActive(false);
         
     }
     IEnumerator doubleShotThing()
     {
         Debug.Log("doubleshotthing");
+        hud3.SetActive(true);
         yield return new WaitForSeconds(5);
         _doubleShot = false;
         isDoubleShotActive = false;
-
+        hud3.SetActive(false);
     }
     public void ActivateDoubleShot(float duration)
     {
@@ -451,10 +464,12 @@ public class GunClass : WeaponSwitching
     IEnumerator instaKillThing()
     {
         Debug.Log("instakill");
+        hud1.SetActive(true);
         yield return new WaitForSeconds(5);
         isInstaKillActive = false;
         _instakill = false;
         meleeAttack.damage = 30;
+        hud1.SetActive(false);
         Debug.Log("fin");
     }
 
