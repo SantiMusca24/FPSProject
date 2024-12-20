@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invencible: 0
   infectionIcon: {fileID: 1918884658}
+  player: {fileID: 0}
   VenenoFiltro: {fileID: 23100919}
   invencibleTime: 1
   infectionDamage: 10
@@ -12951,6 +12952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invencible: 0
   infectionIcon: {fileID: 1918884658}
+  player: {fileID: 0}
   VenenoFiltro: {fileID: 23100919}
   invencibleTime: 1
   infectionDamage: 10
@@ -14220,6 +14222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invencible: 0
   infectionIcon: {fileID: 1918884658}
+  player: {fileID: 0}
   VenenoFiltro: {fileID: 23100919}
   invencibleTime: 1
   infectionDamage: 10
@@ -25072,6 +25075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invencible: 0
   infectionIcon: {fileID: 1918884658}
+  player: {fileID: 0}
   VenenoFiltro: {fileID: 23100919}
   invencibleTime: 1
   infectionDamage: 10
@@ -25507,6 +25511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invencible: 0
   infectionIcon: {fileID: 1918884658}
+  player: {fileID: 0}
   VenenoFiltro: {fileID: 23100919}
   invencibleTime: 1
   infectionDamage: 10
@@ -27572,7 +27577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeCollider: {fileID: 1620241573}
   damage: 30
-  cooldown: 0.1
+  cooldown: 1
   moveChar: {fileID: 1059113972}
   animator: {fileID: 763237582}
   cuchillo: {fileID: 763237580}
