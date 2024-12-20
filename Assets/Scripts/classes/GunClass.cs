@@ -45,6 +45,7 @@ public class GunClass : WeaponSwitching
 
     [SerializeField] private bool _canActivateInfShot = true;
     [SerializeField] static public bool _infShot = false;
+    [SerializeField] static public bool _doubleShot = false;
     [SerializeField] protected MoveChar moveChar;
     [SerializeField] private GameObject cartel100;
     public AudioSource pickupSound; 
@@ -58,6 +59,7 @@ public class GunClass : WeaponSwitching
         base.Start();
         _pistolMunnition = handgun.rel;
         _akMunnition = machinegun.rel;
+        _infShot = false;
     }
     public override void Update()
     {
@@ -89,14 +91,12 @@ public class GunClass : WeaponSwitching
             BulletCounter._currentBullets = machinegun.amm;
             PistolBullets._currentBullets = handgun.amm;
             BazookaBullet._currentBullets = bazooka.amm;
+            StartCoroutine(infShotThing());
+            _canActivateInfShot = false;
+
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && _canActivateInfShot)
-        {
-            _canActivateInfShot = false;
-            _infShot = true;
-            StartCoroutine(infShotThing());
-        }
+        
 
         if (PistolBullets._currentBullets <= 0 && _canChangePistolMunnition && _pistolMunnition > 0)
         {
@@ -108,9 +108,10 @@ public class GunClass : WeaponSwitching
             _canChangeAkMunnition = false;
             //_akMunnition--;
         }
-        if (Input.GetKeyDown(KeyCode.E) && canActivateDoubleShot)
+        if (_doubleShot)
         {
             ActivateDoubleShot(doubleShotDuration);
+            canActivateDoubleShot = false;
         }
         //if (_akMunnition <= 0) BulletCounter._canShoot = false;
         //if (_pistolMunnition <= 0) PistolBullets._canShoot = false;
@@ -119,7 +120,7 @@ public class GunClass : WeaponSwitching
         _akMunnitionText.text = "x" + _akMunnition;
 
 
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && selectedWeapon == 0)
+        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && selectedWeapon == 0 && meleeAttack.meleeActivate==false)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -128,7 +129,7 @@ public class GunClass : WeaponSwitching
                 Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
             }
         }
-        else if (Input.GetMouseButtonDown(0) && selectedWeapon == 1 && PistolBullets._canShoot && !PistolBullets._shootCooldown)
+        else if (Input.GetMouseButtonDown(0) && selectedWeapon == 1 && PistolBullets._canShoot && !PistolBullets._shootCooldown && meleeAttack.meleeActivate == false)
         {
             Shoot();
             _animator.SetTrigger("Fire");
@@ -146,7 +147,7 @@ public class GunClass : WeaponSwitching
                 Invoke("Shoot", 0.1f); // Disparo secundario con un pequeño retraso
             }
         }
-        else if (Input.GetMouseButtonDown(0) && !PistolBullets._shootCooldown) _emptyNoise.Play();
+        else if (Input.GetMouseButtonDown(0) && !PistolBullets._shootCooldown && meleeAttack.meleeActivate == false) _emptyNoise.Play();
 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -154,10 +155,67 @@ public class GunClass : WeaponSwitching
             InteractM4();
             InteractBazooka();
             InteractKey();
+            InteractInfiniteShoot();
+            InteractDoubleShoot();
+        }
+    }
+    void InteractDoubleShoot()
+    {
+        if (moveChar.points < 200)
+        {
+            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            return;
+        }
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            //  Debug.Log(hit.transform.name);
+
+
+            DoubleShotFloor target = hit.transform.GetComponent<DoubleShotFloor>();
+            if (target != null)
+            {
+                target.Interact();
+                moveChar.points -= 200;
+                if (pickupSound != null)
+                {
+                    pickupSound.Play();
+                }
+            }
+        }
+    }
+    void InteractInfiniteShoot()
+    {
+        if (moveChar.points < 200)
+        {
+            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            return;
+        }
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            //  Debug.Log(hit.transform.name);
+
+
+            InfiniteShootFlor target = hit.transform.GetComponent<InfiniteShootFlor>();
+            if (target != null)
+            {
+                target.Interact();
+                moveChar.points -= 200;
+                if (pickupSound != null)
+                {
+                    pickupSound.Play();
+                }
+            }
         }
     }
     void InteractBazooka()
     {
+        if (moveChar.points < 200)
+        {
+            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            return;
+        }
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -168,6 +226,11 @@ public class GunClass : WeaponSwitching
             if (target != null)
             {
                 target.Interact();
+                moveChar.points -= 200;
+                if (pickupSound != null)
+                {
+                    pickupSound.Play();
+                }
             }
         }
     }
@@ -183,6 +246,7 @@ public class GunClass : WeaponSwitching
             if (target != null)
             {
                 target.Interact();
+
             }
         }
     }
@@ -324,20 +388,23 @@ public class GunClass : WeaponSwitching
     {
         yield return new WaitForSeconds(5);
         _infShot = false;
-        _canActivateInfShot = true;
+        
+    }
+    IEnumerator doubleShotThing()
+    {
+        Debug.Log("doubleshotthing");
+        yield return new WaitForSeconds(5);
+        _doubleShot = false;
+        isDoubleShotActive = false;
+
     }
     public void ActivateDoubleShot(float duration)
     {
         isDoubleShotActive = true;
         canActivateDoubleShot = false;
-        Invoke("DeactivateDoubleShot", duration); // Desactiva el power-up después de la duración
+        StartCoroutine(doubleShotThing());
     }
 
-    // Método para desactivar el power-up
-    void DeactivateDoubleShot()
-    {
-        isDoubleShotActive = false;
-        canActivateDoubleShot = true;
-    }
+    
 
 }

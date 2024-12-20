@@ -24,6 +24,7 @@ public class WeaponSwitching : MonoBehaviour
     static public int selectedWeapon = 1;
     static public bool isM4Available = false;
     static public bool isBazookaAvailable = false;
+    static public bool isInfiniteShootAvailable = false;
 
     //TP2 - Manuel Pereiro (agregado structs)
     public virtual void Start()
@@ -58,6 +59,18 @@ public class WeaponSwitching : MonoBehaviour
         _bazookaObj.SetActive(false);
         SelectWeapon();
     }
+    public void DeactivateAllWeapons()
+    {
+        foreach (Transform weapon in transform)
+        {
+            weapon.gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateSelectedWeapon()
+    {
+        SelectWeapon();
+    }
 
 
     public virtual void Update()
@@ -65,6 +78,7 @@ public class WeaponSwitching : MonoBehaviour
 
         int previousSelectedWeapon = selectedWeapon;
 
+       
         if (isBazookaAvailable)
         {
             selectedWeapon = 2;

@@ -7,7 +7,7 @@ public class EnemyScoreManager : MonoBehaviour
 {
     //TP2 Santiago Muscatiello(diccionario)
     public static EnemyScoreManager Instance { get; private set; }
-     
+    
     public struct LootData
     {
         public int points;
@@ -32,7 +32,15 @@ public class EnemyScoreManager : MonoBehaviour
 
         
         DontDestroyOnLoad(gameObject);
-        enemyScores.Add(EnemyType.Melee, new LootData{points= 100});
+        if (meleeAttack.meleeActivate==true)
+        {
+            enemyScores.Add(EnemyType.Melee, new LootData { points = 300 });
+        }
+        else
+        {
+          enemyScores.Add(EnemyType.Melee, new LootData { points = 100 });
+        }
+        
         enemyScores.Add(EnemyType.Flying, new LootData { points = 200 });
     }
 
