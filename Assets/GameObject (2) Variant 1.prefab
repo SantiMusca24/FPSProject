@@ -12,6 +12,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: WFX_ExplosiveSmokeGround Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177696, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177698, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177700, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177702, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177706, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177708, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814119245783177710, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5814119245783270848, guid: bf9981e8921b70243bd6b0ecc570ced9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1500001
@@ -79,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameObject (2) Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 386367725895220816, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4258418845664201078, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
       propertyPath: mesh
       value: 
@@ -142,6 +174,10 @@ PrefabInstance:
     - target: {fileID: 9008695676134064707, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185538368565329185, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9185538368565329185, guid: cbff014d84e6bc14489cf268180eab82, type: 3}
       propertyPath: m_IsActive
@@ -318,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 8855025939855335452, guid: ef3a17e05854adc4abed245ddab68f1f, type: 3}
       propertyPath: m_Name
       value: Rocket06 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855025939855335452, guid: ef3a17e05854adc4abed245ddab68f1f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8855025939855335452, guid: ef3a17e05854adc4abed245ddab68f1f, type: 3}
       propertyPath: m_IsActive
