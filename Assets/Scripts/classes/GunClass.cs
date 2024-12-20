@@ -175,9 +175,35 @@ public class GunClass : WeaponSwitching
             InteractM4();
             InteractBazooka();
             InteractKey();
+            InteractKeyWin();
             InteractInfiniteShoot();
             InteractDoubleShoot();
             InteractInstaKill();
+        }
+    }
+    void InteractKeyWin()
+    {
+        if (moveChar.points < 100)
+        {
+            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            return;
+        }
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
+        {
+            //  Debug.Log(hit.transform.name);
+
+
+            keyWin target = hit.transform.GetComponent<keyWin>();
+            if (target != null)
+            {
+                target.Interact();
+                moveChar.points -= 100;
+                if (pickupSound != null)
+                {
+                    pickupSound.Play();
+                }
+            }
         }
     }
     void InteractDoubleShoot()
