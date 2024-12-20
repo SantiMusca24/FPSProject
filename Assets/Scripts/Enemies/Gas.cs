@@ -8,6 +8,7 @@ public class Gas : MonoBehaviour
     //Lorenzo Marmol
     public bool invencible = false;
     public GameObject infectionIcon;
+    public Transform player;
     public GameObject VenenoFiltro;
     public float invencibleTime = 1f;
     public int infectionDamage = 10;
@@ -18,8 +19,9 @@ public class Gas : MonoBehaviour
         VenenoFiltro.SetActive(true);
         if (maskOn == false && !invencible && Salud.health > 0)
         {
-            Salud.health -= infectionDamage;
-           
+            Salud playerHealth = player.GetComponent<Salud>();
+            playerHealth.ReceiveDamage(infectionDamage);
+
             infectionIcon.SetActive(true);
             
             print("te dio");
@@ -33,7 +35,8 @@ public class Gas : MonoBehaviour
         VenenoFiltro.SetActive(true);
         if (maskOn == false && !invencible && Salud.health > 0)
         {
-            Salud.health -= infectionDamage;
+            Salud playerHealth = player.GetComponent<Salud>();
+            playerHealth.ReceiveDamage(infectionDamage);
             infectionIcon.SetActive(true);
             print("te dio");
             StartCoroutine(invulnerability());

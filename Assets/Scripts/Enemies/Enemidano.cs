@@ -10,24 +10,29 @@ public class Enemidano : MonoBehaviour
     public float moveSpeed = 3f;
     public float damage = 10f;
     public float damageCooldown = 1f; 
-
+    
     private float lastDamageTime = 0f;
 
     private void Update()
     {
-         Vector3 direction = (player.position - transform.position).normalized;
 
-       
-        Vector3 lookDirection = new Vector3(direction.x, 0, direction.z);
-        if (lookDirection != Vector3.zero)
+
         {
-            transform.rotation = Quaternion.LookRotation(lookDirection);
-        }
+            Vector3 direction = (player.position - transform.position).normalized;
 
-       
-        transform.position += direction * moveSpeed * Time.deltaTime;
+
+            Vector3 lookDirection = new Vector3(direction.x, 0, direction.z);
+            if (lookDirection != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(lookDirection);
+            }
+
+
+            transform.position += direction * moveSpeed * Time.deltaTime;
+
+
+           }
         }
-        
        
 
     private void OnCollisionEnter(Collision collision)
