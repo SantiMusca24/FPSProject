@@ -140,7 +140,7 @@ public class GunClass : WeaponSwitching
         _akMunnitionText.text = "x" + _akMunnition;
 
 
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && selectedWeapon == 0 && meleeAttack.meleeActivate==false)
+        if (!Input.GetKey(KeyCode.LeftControl) && Input.GetButton("Fire1") && Time.time > nextTimeToFire && BulletCounter._canShoot && selectedWeapon == 0 && meleeAttack.meleeActivate==false)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
