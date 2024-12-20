@@ -188,7 +188,7 @@ public class GunClass : WeaponSwitching
             return;
         }
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
             //  Debug.Log(hit.transform.name);
 
@@ -209,11 +209,11 @@ public class GunClass : WeaponSwitching
     {
         if (moveChar.points < 300)
         {
-            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            Debug.Log("Necesitas al menos 300 puntos para interactuar con el M4.");
             return;
         }
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
             //  Debug.Log(hit.transform.name);
 
@@ -238,7 +238,7 @@ public class GunClass : WeaponSwitching
             return;
         }
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
             //  Debug.Log(hit.transform.name);
 
@@ -263,7 +263,7 @@ public class GunClass : WeaponSwitching
             return;
         }
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
             //  Debug.Log(hit.transform.name);
 
@@ -283,7 +283,7 @@ public class GunClass : WeaponSwitching
     void InteractBulletBox()
     {
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
           //  Debug.Log(hit.transform.name);
 
@@ -337,7 +337,7 @@ public class GunClass : WeaponSwitching
     {
        
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, closeRange))
         {
             //Debug.Log(hit.transform.name);
            // Debug.Log("activo");
