@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DoubleShotFloor : MonoBehaviour,IInteractuable
+public class instakillfloor : MonoBehaviour,IInteractuable
 {
     public GameObject m4;
     public TextMeshProUGUI interactText;
@@ -36,8 +36,8 @@ public class DoubleShotFloor : MonoBehaviour,IInteractuable
 
     public void Interact()
     {
-        GunClass._doubleShot = true;
-        Debug.Log("activo2");
+        GunClass._instakill = true;
+        Debug.Log("activoinstakill");
         m4.SetActive(false);
         interactText.gameObject.SetActive(false);
         puntos.gameObject.SetActive(false);

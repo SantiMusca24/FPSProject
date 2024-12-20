@@ -5,14 +5,16 @@ using UnityEngine;
 public class meleeAttack : MonoBehaviour
 {
     [SerializeField] private Collider meleeCollider; 
-    [SerializeField] private int damage = 10; 
+    
     [SerializeField] private float cooldown = 0.5f;
     [SerializeField] private MoveChar moveChar;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject cuchillo;
     [SerializeField] private WeaponSwitching weaponManager;
     static public bool meleeActivate;
-    
+    static public int damage = 30;
+    [SerializeField] private ParticleSystem impactParticle;
+    [SerializeField] private AudioSource meleeAttackSound;
 
     private bool canAttack = true; 
 
@@ -35,6 +37,10 @@ public class meleeAttack : MonoBehaviour
         weaponManager.DeactivateAllWeapons();
         cuchillo.SetActive(true);
         canAttack = false;
+        if (meleeAttackSound != null)
+        {
+            meleeAttackSound.Play();
+        }
         meleeCollider.enabled = true;
         animator.SetTrigger("MeleeAttack");
 
@@ -58,7 +64,9 @@ public class meleeAttack : MonoBehaviour
 
             
             Debug.Log($"Daño infligido al enemigo: {target.name}.");
-
+            ParticleSystem particle = Instantiate(impactParticle, other.transform.position, Quaternion.identity);
+            particle.Play();
+            Destroy(particle.gameObject, 2f); // Destruir las partículas tras 2 segundos
             if (enemyKilled)
             {
                

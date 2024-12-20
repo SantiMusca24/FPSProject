@@ -29,7 +29,9 @@ public class GunClass : WeaponSwitching
     [SerializeField] private AudioSource _shootNoise, _emptyNoise, _bazookaNoise, _bazookaExplode;
     [SerializeField] private Animator _animator;
     private bool isDoubleShotActive = false;
-    private float doubleShotDuration = 5f; // Duración del power-up de doble disparo
+    private bool isInstaKillActive = false;
+    private float doubleShotDuration = 5f;
+    private float instaKillDuration = 5f;// Duración del power-up de doble disparo 
     private bool canActivateDoubleShot = true;
 
     [SerializeField] static public bool _canChangePistolMunnition = true;
@@ -46,6 +48,7 @@ public class GunClass : WeaponSwitching
     [SerializeField] private bool _canActivateInfShot = true;
     [SerializeField] static public bool _infShot = false;
     [SerializeField] static public bool _doubleShot = false;
+    [SerializeField] static public bool _instakill =  false;
     [SerializeField] protected MoveChar moveChar;
     [SerializeField] private GameObject cartel100;
     public AudioSource pickupSound; 
@@ -60,6 +63,7 @@ public class GunClass : WeaponSwitching
         _pistolMunnition = handgun.rel;
         _akMunnition = machinegun.rel;
         _infShot = false;
+        
     }
     public override void Update()
     {
@@ -113,6 +117,12 @@ public class GunClass : WeaponSwitching
             ActivateDoubleShot(doubleShotDuration);
             canActivateDoubleShot = false;
         }
+        if (_instakill)
+        {
+            Debug.Log("llama instakill");
+            ActivateInstaKill(instaKillDuration);
+
+        }
         //if (_akMunnition <= 0) BulletCounter._canShoot = false;
         //if (_pistolMunnition <= 0) PistolBullets._canShoot = false;
         
@@ -157,11 +167,12 @@ public class GunClass : WeaponSwitching
             InteractKey();
             InteractInfiniteShoot();
             InteractDoubleShoot();
+            InteractInstaKill();
         }
     }
     void InteractDoubleShoot()
     {
-        if (moveChar.points < 200)
+        if (moveChar.points < 300)
         {
             Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
             return;
@@ -176,7 +187,32 @@ public class GunClass : WeaponSwitching
             if (target != null)
             {
                 target.Interact();
-                moveChar.points -= 200;
+                moveChar.points -= 300;
+                if (pickupSound != null)
+                {
+                    pickupSound.Play();
+                }
+            }
+        }
+    }
+    void InteractInstaKill()
+    {
+        if (moveChar.points < 300)
+        {
+            Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
+            return;
+        }
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            //  Debug.Log(hit.transform.name);
+
+
+            instakillfloor target = hit.transform.GetComponent<instakillfloor>();
+            if (target != null)
+            {
+                target.Interact();
+                moveChar.points -= 300;
                 if (pickupSound != null)
                 {
                     pickupSound.Play();
@@ -186,7 +222,7 @@ public class GunClass : WeaponSwitching
     }
     void InteractInfiniteShoot()
     {
-        if (moveChar.points < 200)
+        if (moveChar.points < 300)
         {
             Debug.Log("Necesitas al menos 100 puntos para interactuar con el M4.");
             return;
@@ -201,7 +237,7 @@ public class GunClass : WeaponSwitching
             if (target != null)
             {
                 target.Interact();
-                moveChar.points -= 200;
+                moveChar.points -= 300;
                 if (pickupSound != null)
                 {
                     pickupSound.Play();
@@ -405,6 +441,22 @@ public class GunClass : WeaponSwitching
         StartCoroutine(doubleShotThing());
     }
 
-    
+    public void ActivateInstaKill(float duration)
+    {
+        Debug.Log("instakill activo");
+        meleeAttack.damage = 100;
+        isInstaKillActive = true;
+        StartCoroutine(instaKillThing());
+    }
+    IEnumerator instaKillThing()
+    {
+        Debug.Log("instakill");
+        yield return new WaitForSeconds(5);
+        isInstaKillActive = false;
+        _instakill = false;
+        meleeAttack.damage = 30;
+        Debug.Log("fin");
+    }
+
 
 }

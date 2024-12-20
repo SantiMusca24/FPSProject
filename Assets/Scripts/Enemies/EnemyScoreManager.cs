@@ -27,30 +27,32 @@ public class EnemyScoreManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Asegura que solo haya una instancia
+            Destroy(gameObject); 
         }
 
         
         DontDestroyOnLoad(gameObject);
-        if (meleeAttack.meleeActivate==true)
-        {
-            enemyScores.Add(EnemyType.Melee, new LootData { points = 300 });
-        }
-        else
-        {
-          enemyScores.Add(EnemyType.Melee, new LootData { points = 100 });
-        }
         
         enemyScores.Add(EnemyType.Flying, new LootData { points = 200 });
     }
 
     public LootData GetPoints(EnemyType enemyType)
     {
-        if(enemyScores.TryGetValue(enemyType,out var lootData))
+        
+        if (enemyType == EnemyType.Melee)
+        {
+            return meleeAttack.meleeActivate
+                ? new LootData { points = 300 }
+                : new LootData { points = 100 };
+        }
+
+        
+        if (enemyScores.TryGetValue(enemyType, out var lootData))
         {
             return lootData;
         }
-        return new LootData { points = 0 };
+
+        return new LootData { points = 0 }; 
     }
 
 }
